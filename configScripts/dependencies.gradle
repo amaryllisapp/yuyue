@@ -1,0 +1,108 @@
+ext {
+
+    supportDependencies = [
+            //网络相关
+            retrofit           : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitconverter  : "com.squareup.retrofit2:converter-gson:$retrofitConverterVersion",
+            okhttp             : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            okhttp3Log         : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            okio               : "com.squareup.okio:okio:$okioVersion",
+            gson               : "com.google.code.gson:gson:$gsonVersion",
+            tinypinyin         : "com.github.promeg:tinypinyin:$tinypinyin",
+
+            rxandroid          : "io.reactivex:rxandroid:$rxjavaVersion",
+            rxjava             : "io.reactivex:rxjava:$rxjavaVersion",
+            rxlifecycle        : "com.trello:rxlifecycle:$rxlifecycleVersion",
+
+            eventbus           : "org.greenrobot:eventbus:$eventbusVersion",
+
+            appcompatV7        : "com.android.support:appcompat-v7:$appcompat",
+            constraintlayout   : "com.android.support.constraint:constraint-layout:$constraintlayout",
+
+            tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayoutVersion@aar",
+
+            recyclerviewadpater: "com.github.CymChad:BaseRecyclerViewAdapterHelper:$recyclerAdapterVersion",
+            recyclerview       : "com.android.support:recyclerview-v7:$appcompat",
+            butterKnife        : "com.jakewharton:butterknife:$butterKnife",
+            butterAnnotations  : "com.jakewharton:butterknife-compiler:$butterKnife",
+
+            supportV4          : "com.android.support:support-v4:$supportV4",
+
+            multidex           : "com.android.support:multidex:$multidex",
+
+            glide              : "com.github.bumptech.glide:glide:$gildeVersion",
+            design             : "com.android.support:design:$designVersion",
+            cardview           : "com.android.support:cardview-v7:$cardviewVersion",
+            xxpermissions      : "com.hjq:xxpermissions:$xxpermissions",
+            arouter_api        : "com.alibaba:arouter-api:$arouter_api",
+            arouter_compiler   : "com.alibaba:arouter-compiler:$arouter_compiler",
+
+            luban              : "top.zibin:Luban:$luban",
+            title_bar          : "com.gyf.barlibrary:barlibrary:$barlibrary",
+
+
+
+            frameWorkModule    : project(':core_framework_module'),
+            networkModule      : project(':basic_network_module'),
+            utilsModule        : project(':basic_utils_module'),
+            widgetsModule      : project(':basic_widgets_module'),
+    ]
+
+    dependenciesExt = [
+            /**
+             * APP
+             */
+            appDependencies      : [
+
+                    supportDependencies.butterKnife,
+                    supportDependencies.appcompatV7,
+                    supportDependencies.constraintlayout,
+                    supportDependencies.xxpermissions,
+                    supportDependencies.multidex,
+                    supportDependencies.design,
+                    supportDependencies.cardview,
+                    supportDependencies.tablayout,
+                    supportDependencies.recyclerviewadpater,
+                    supportDependencies.recyclerview,
+
+
+            ],
+            /**
+             * 工具类
+             */
+            utilsDependencies    : [
+                    supportDependencies.glide,
+                    supportDependencies.eventbus,
+                    supportDependencies.gson,
+                    supportDependencies.arouter_api,
+                    supportDependencies.luban,
+                    supportDependencies.title_bar,
+            ],
+            /**
+             * 核心库
+             */
+            frameworkDependencies: [
+
+            ],
+            /**
+             * 网络库
+             */
+            networkDependencies  : [
+
+                    supportDependencies.retrofit,
+                    supportDependencies.okhttp,
+                    supportDependencies.okhttp3Log,
+                    supportDependencies.okio,
+                    supportDependencies.retrofitconverter,
+                    supportDependencies.rxjava,
+                    supportDependencies.rxlifecycle,
+                    supportDependencies.rxandroid,
+            ]
+    ]
+
+    annotationLibs = [
+            supportDependencies.butterAnnotations,
+            supportDependencies.arouter_compiler,
+    ]
+
+}

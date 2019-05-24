@@ -1,0 +1,29 @@
+apply from: 'configScripts/dependencies.gradle'
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        apply from: rootProject.projectDir.absolutePath+'/configScripts/loadConfig.gradle'
+
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'     //ButterKnife
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

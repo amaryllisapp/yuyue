@@ -1,0 +1,1 @@
+include ':app', ':basic_utils_module', ':basic_network_module', ':core_framework_module', ':basic_widgets_module'

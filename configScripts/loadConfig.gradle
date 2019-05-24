@@ -1,0 +1,11 @@
+import groovy.json.*
+import groovy.json.internal.*
+
+def slurper = new JsonSlurper()
+LazyMap configResult = slurper.parse(new File(rootProject.projectDir.absolutePath+'/configScripts/config.json'))
+println(new File(rootProject.projectDir.absolutePath+'/configScripts/config.json').text)
+
+Set<Map.Entry<String,Object>> result = configResult.entrySet()
+result.each {
+    project.ext.set(it.key,it.value)
+}

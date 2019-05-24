@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+//APK前缀
+def apkPrefix() { return "yuyue" }
+//APK后缀
+def apkSuffix() { return "apk" }
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        ndk {
+            abiFilters "armeabi" //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 更新 build.gradle, 添加参数 AROUTER_GENERATE_DOC = enable
+                // 生成的文档路径 : build/generated/source/apt/(debug or release)/com/alibaba/android/arouter/docs/arouter-map-of-${moduleName}.json
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+
+
+    /**
+     * 签名扩展信息
+     */
+    ext.myStoreFile = file("./keystores/android.keystore")
+    ext.myStorePassword = 'psrecycle123'
+    ext.myKeyAlias = 'psrecycle'
+    ext.myKeyPassword = 'psrecycle123'
+    /**
+     * 签名
+     */
+    signingConfigs {
+        debug {
+            storeFile myStoreFile
+            storePassword myStorePassword
+            keyAlias myKeyAlias
+            keyPassword myKeyPassword
+        }
+
+        release {
+            storeFile myStoreFile
+            storePassword myStorePassword
+            keyAlias myKeyAlias
+            keyPassword myKeyPassword
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+
+    buildTypes {
+        // 本地测试(开发环境)
+        debug {
+            multiDexEnabled true
+            minifyEnabled false //最小化资源包
+            shrinkResources false//去掉无用资源
+            signingConfig signingConfigs.debug
+           /* buildConfigField "String", "SERVER_URL", "\"" + debugUrl + "merchant/\""
+            //集成測試環境
+            buildConfigField "String", "SENSOR_SERVER", "\"https://sc.xhg.com:4006/sa?project=default\""
+            buildConfigField "String", "FORCE_TO_LOGIN", "\"${force_apk_version}\""*/
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            multiDexEnabled true
+            minifyEnabled true //最小化资源包
+            shrinkResources true//去掉无用资源
+            signingConfig signingConfigs.release
+           /* buildConfigField "String", "SERVER_URL", "\"" + debugUrl + "merchant/\""
+            //集成測試環境
+            buildConfigField "String", "SENSOR_SERVER", "\"https://sc.xhg.com:4006/sa?project=default\""
+            buildConfigField "String", "FORCE_TO_LOGIN", "\"${force_apk_version}\""*/
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    /**
+     * 编译APK名称
+     */
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${apkPrefix()}_${defaultConfig.versionName}_${variant.buildType.name}_${releaseTime()}.${apkSuffix()}"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dependenciesExt.appDependencies
+    annotationProcessor annotationLibs
+}
