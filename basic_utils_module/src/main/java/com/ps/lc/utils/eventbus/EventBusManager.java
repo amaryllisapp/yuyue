@@ -1,10 +1,11 @@
 package com.ps.lc.utils.eventbus;
 
-import android.support.annotation.NonNull;
 
 import com.ps.lc.utils.log.LogHelper;
 
 import org.greenrobot.eventbus.EventBus;
+
+import androidx.annotation.NonNull;
 
 
 /**

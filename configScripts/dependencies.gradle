@@ -87,7 +87,7 @@ ext {
             /**
              * 网络库
              */
-            networkDependencies  : [
+            /*networkDependencies  : [
 
                     supportDependencies.retrofit,
                     supportDependencies.okhttp,
@@ -97,12 +97,12 @@ ext {
                     supportDependencies.rxjava,
                     supportDependencies.rxlifecycle,
                     supportDependencies.rxandroid,
-            ]
+            ]*/
     ]
 
     annotationLibs = [
             supportDependencies.butterAnnotations,
-            supportDependencies.arouter_compiler,
+//            supportDependencies.arouter_compiler,
     ]
 
 }

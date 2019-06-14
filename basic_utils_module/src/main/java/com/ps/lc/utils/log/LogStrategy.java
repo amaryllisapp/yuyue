@@ -1,7 +1,8 @@
 package com.ps.lc.utils.log;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Determines destination target for the logs such as Disk, Logcat etc.

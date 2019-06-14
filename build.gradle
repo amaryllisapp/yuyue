@@ -5,12 +5,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         apply from: rootProject.projectDir.absolutePath+'/configScripts/loadConfig.gradle'
 
-        classpath 'com.android.tools.build:gradle:3.2.1'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'     //ButterKnife
+        classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
 
     }
 }
