@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- material lock -->
+    <color name="colorPrimary">#ffbf00</color><!--#ffbf00-->
+    <color name="colorPrimaryDark">#ffbf00</color>
+    <color name="colorAccent">#FFBF00</color>
+    <color name="material_lock">#ffffff</color>
+    <color name="material_lock_correct">#ffffff</color>
+    <color name="material_lock_wrong">#FF8364</color>
+    <color name="common_color_bg">#F6F6F6</color>
+    <color name="common_color_F1F1F1">#F1F1F1</color>
+</resources>

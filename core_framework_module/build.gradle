@@ -4,4 +4,6 @@ apply from: rootProject.projectDir.absolutePath + '/configScripts/androidScript.
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    annotationProcessor annotationLibs
+    api dependenciesExt.frameworkDependencies
 }

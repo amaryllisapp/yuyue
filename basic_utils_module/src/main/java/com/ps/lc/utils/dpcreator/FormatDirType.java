@@ -2,10 +2,10 @@ package com.ps.lc.utils.dpcreator;
 
 
 
+import android.support.annotation.IntDef;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import androidx.annotation.IntDef;
 
 /**
  *  回收机 - 箱子满箱状态类型
@@ -25,7 +25,7 @@ public @interface FormatDirType {
      */
     int ALL = 1;
     /**
-     * 满箱
+     * 合并
      */
     int MEGER = 2;
 }
