@@ -15,7 +15,9 @@ import com.ps.lc.utils.shared.SharedManager;
 public class UtilsHelper {
 
     public static void init(Application application, boolean DEBUG) {
-        SharedManager.init(application);
+        AppContextUtil.init(application);
         LogHelper.init(DEBUG, application.getPackageName());
+        SharedManager.init(application);
+        HardwareUtil.init(application);
     }
 }

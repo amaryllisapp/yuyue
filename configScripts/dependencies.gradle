@@ -28,7 +28,8 @@ ext {
             recyclerviewadpater: "com.github.CymChad:BaseRecyclerViewAdapterHelper:$recycleradapter",
             design             : "com.android.support:design:$design",
             cardview           : "com.android.support:cardview-v7:$cardview",
-            title_bar          : "com.gyf.barlibrary:barlibrary:$title_bar",
+            statusbar          : "com.gyf.barlibrary:barlibrary:$statusbar",
+            titlebar           : "com.wuhenzhizao:titlebar:$titlebar",
             tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayout@aar",
             //-----------------------------Router-----------------------------------------------
             arouter_api        : "com.alibaba:arouter-api:$arouter_api",
@@ -53,18 +54,11 @@ ext {
                     supportDependencies.frameWorkModule,
                     supportDependencies.networkModule,
                     supportDependencies.widgetsModule,
-                    supportDependencies.butterKnife,
-                    supportDependencies.appcompatV7,
                     supportDependencies.constraintlayout,
                     supportDependencies.xxpermissions,
-
                     supportDependencies.design,
                     supportDependencies.cardview,
                     supportDependencies.tablayout,
-                    supportDependencies.recyclerviewadpater,
-                    supportDependencies.recyclerview,
-
-
             ],
             /**
              * 工具类
@@ -74,7 +68,6 @@ ext {
                     supportDependencies.eventbus,
                     supportDependencies.gson,
                     supportDependencies.luban,
-                    supportDependencies.title_bar,
             ],
             /**
              * 核心库
@@ -83,6 +76,13 @@ ext {
                     supportDependencies.utilsModule,
                     supportDependencies.arouter_api,
                     supportDependencies.multidex,
+                    supportDependencies.butterKnife,
+                    supportDependencies.appcompatV7,
+                    supportDependencies.recyclerviewadpater,
+                    supportDependencies.recyclerview,
+                    supportDependencies.statusbar,
+                    supportDependencies.titlebar,
+
             ],
             /**
              * 网络库

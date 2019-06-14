@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">basic_utils_module</string>
+    <string name="exit">再按一次退出程序</string>
 </resources>
