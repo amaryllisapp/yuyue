@@ -22,11 +22,10 @@
   "designVersion":"28.0.0",
   "cardviewVersion":"28.0.0",
   "constraintlayout":"2.0.0-alpha2",
-  "butterKnife":"10.1.0",
+  "butterKnife":"8.8.1",
   "mutiDex":"1.0.2",
   "walle":"1.0.3",
   "permission":"2.1.2",
-  "xlog":"1.4.0",
   "jPush":"3.1.1",
   "jPushCore":"1.1.9",
   "fastJson":"1.1.59.android",
@@ -56,20 +55,6 @@
 
   "badgeview":"1.1.3",
   "barlibrary":"2.3.0",
-
-  "feedback":"3.2.0",
-  "feedback_utdid":"1.1.5.3",
-  "feedback_ut":"5.4.0",
-  "feedback_utils":"1.1.3",
-  "feedabck_statusbar":"0.5.3",
-
-  "sobotsdk":"2.6.1",
-
-  "umeng_core":"latest.integration",
-  "umeng_qq":"latest.integration",
-  "umeng_wechat":"latest.integration",
-  "umeng_sina":"latest.integration",
-  "umeng_common":"1.5.0",
 
   "xxpermissions":"5.2",
   "arouter_api":"1.4.1",

@@ -7,8 +7,8 @@ import java.io.StringWriter;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 
 /**

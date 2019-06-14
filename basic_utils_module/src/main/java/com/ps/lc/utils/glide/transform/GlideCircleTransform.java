@@ -10,7 +10,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
 import java.security.MessageDigest;
 
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
 
 /**
  * @author 36077 - liucheng@xhg.com
