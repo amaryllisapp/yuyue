@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import com.gyf.barlibrary.ImmersionBar;
-import com.hjq.bar.TitleBar;
 import com.ps.lc.utils.ToastUtil;
 import com.ps.lc.utils.eventbus.EventBusManager;
+import com.ps.lc.utils.widgets.titlebar.TitleBar;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

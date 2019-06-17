@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.lc.framework.core.activity.CommonAbsActivity;
 import com.lc.framework.router.share.ShareIntentManager;
+import com.ps.lc.utils.widgets.titlebar.TitleBarManager;
+import com.ps.lc.utils.widgets.titlebar.TitleBarType;
 
 import butterknife.BindView;
 
@@ -28,8 +30,13 @@ public class MainActivity extends CommonAbsActivity {
     }
 
     @Override
+    public void initTitleView() {
+        new TitleBarManager().with(mTitleBar).type(TitleBarType.RIGHT_STRING).listener(this).apply();
+    }
+
+    @Override
     protected void initView(Bundle savedInstanceState, LinearLayout containerLay) {
-        setTitleBarVisible(false);
+//        setTitleBarVisible(false);
         mTestShow.setText("你好");
         mTestShow.setOnClickListener(new View.OnClickListener() {
             @Override

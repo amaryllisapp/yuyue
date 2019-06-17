@@ -2,12 +2,13 @@ package com.lc.framework.core.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.hjq.bar.OnTitleBarListener;
-import com.hjq.bar.TitleBar;
 import com.lc.framework.R;
+import com.ps.lc.utils.widgets.titlebar.OnTitleBarListener;
+import com.ps.lc.utils.widgets.titlebar.TitleBar;
+import com.ps.lc.utils.widgets.titlebar.TitleBarManager;
+import com.ps.lc.utils.widgets.titlebar.TitleBarType;
 
 import butterknife.Unbinder;
 
@@ -24,21 +25,13 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
 
     private Unbinder mButterKnife;
     /**
-     * 页面根节点View
-     */
-    private FrameLayout mRootView;
-    /**
      * 用于适配沉浸式状态栏
      */
     private View mTopView;
     /**
      * 标题栏
      */
-    private TitleBar mTitleBar;
-    /**
-     * 标题栏底部的分割线视图
-     */
-    private View mTitleDivider;
+    protected TitleBar mTitleBar;
     /**
      * 内容区域
      */
@@ -91,14 +84,10 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * 初始化根节点布局视图
      */
     private void initParentView() {
-        // 布局根节点
-        mRootView = findViewById(R.id.root_view);
         // 用于适配沉浸式状态栏
         mTopView = findViewById(R.id.top_view);
         // 获取标题栏视图
         mTitleBar = findViewById(R.id.title_bar);
-        // 标题栏底部的分割线视图
-        mTitleDivider = findViewById(R.id.title_divider_line);
         // 内容视图容器
         mContainerLay = findViewById(R.id.root_container);
     }
@@ -123,8 +112,8 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * 初始化标题栏
      */
     protected void initTitleBar() {
-        initTitleNameView();
         initTitleView();
+        initTitleNameView();
     }
 
 
@@ -147,19 +136,7 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * (子类要扩展需要继承该方法实现)
      */
     public void initTitleView() {
-        mTitleBar.setLeftTitle("返回");
-        mTitleBar.setLeftIcon(R.drawable.icon_com_back);
-        mTitleBar.setOnTitleBarListener(this);
-    }
-
-    /**
-     * 显示和隐藏 TitleBar
-     *
-     * @param visible true 显示,反之隐藏
-     */
-    public void setTitleBarVisible(boolean visible) {
-        mTitleBar.setVisibility(visible ? View.VISIBLE : View.GONE);
-        mTitleDivider.setVisibility(visible ? View.VISIBLE : View.GONE);
+        new TitleBarManager().with(mTitleBar).type(TitleBarType.LEFT_ONLY).listener(this).apply();
     }
 
 

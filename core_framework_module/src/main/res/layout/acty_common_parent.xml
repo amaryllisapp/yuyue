@@ -12,16 +12,10 @@
         android:layout_height="0dp" />
 
     <!--标题栏-->
-    <com.hjq.bar.TitleBar
+    <com.ps.lc.utils.widgets.titlebar.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/sx48" />
-    <!--标题底部阴影或者分割线-->
-    <View
-        android:id="@+id/title_divider_line"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:visibility="gone" />
 
     <!--内容区-->
     <LinearLayout
