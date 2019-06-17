@@ -3,6 +3,7 @@ package com.lc.framework;
 import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.lc.framework.utils.LeakCanaryUtil;
 import com.ps.lc.utils.UtilsHelper;
 
 /**
@@ -19,5 +20,8 @@ public class BaseApplication extends MultiDexApplication {
         super.onCreate();
         ARouter.init(this);
         UtilsHelper.init(this, BuildConfig.DEBUG);
+        if(BuildConfig.DEBUG){
+            LeakCanaryUtil.setupLeakCanary(this);
+        }
     }
 }

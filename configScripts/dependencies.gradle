@@ -20,6 +20,7 @@ ext {
             xxpermissions      : "com.hjq:xxpermissions:$xxpermissions",
             butterKnife        : "com.jakewharton:butterknife:$butterknife",
             butterAnnotations  : "com.jakewharton:butterknife-compiler:$butterknife",
+            leakcanary         : "com.squareup.leakcanary:leakcanary-android:$leakcanary",
             //-----------------------------UI-----------------------------------------------
             supportV4          : "com.android.support:support-v4:$supportV4",
             appcompatV7        : "com.android.support:appcompat-v7:$appcompat",
@@ -82,6 +83,7 @@ ext {
                     supportDependencies.recyclerview,
                     supportDependencies.statusbar,
                     supportDependencies.titlebar,
+                    supportDependencies.leakcanary
 
             ],
             /**

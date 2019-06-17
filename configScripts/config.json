@@ -19,12 +19,6 @@
   "titlebar":"1.1.4",
   "tabLayout":"2.1.0",
 
-  "_commentLib": "通用库版本",
-  "multidex":"1.0.3",
-  "eventbus":"3.0.0",
-  "xxpermissions":"5.2",
-  "butterknife":"8.8.1",
-
   "_commentLib": "图片库版本",
   "gilde":"4.7.1",
   "luban":"1.1.8",
@@ -43,5 +37,12 @@
 
   "_commentLib": "路由库版本",
   "arouter_api":"1.4.1",
-  "arouter_compiler":"1.2.2"
+  "arouter_compiler":"1.2.2",
+
+  "_commentLib": "通用库版本",
+  "multidex":"1.0.3",
+  "eventbus":"3.0.0",
+  "xxpermissions":"5.2",
+  "butterknife":"8.8.1",
+  "leakcanary":"1.5.4"
 }
