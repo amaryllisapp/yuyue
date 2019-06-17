@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+    <!--状态度栏高度适配View-->
+    <View
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <!--标题栏-->
+    <com.hjq.bar.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sx48" />
+    <!--标题底部阴影或者分割线-->
+    <View
+        android:id="@+id/title_divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:visibility="gone" />
+
+    <!--内容区-->
+    <LinearLayout
+        android:id="@+id/root_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/sx48"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</FrameLayout>

@@ -3,11 +3,13 @@ package com.lc.framework.core.activity.helper;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.hjq.bar.TitleBar;
 import com.ps.lc.utils.ToastUtil;
 import com.ps.lc.utils.eventbus.EventBusManager;
 
@@ -21,7 +23,11 @@ import butterknife.Unbinder;
  * @author liucheng - liucheng@xhg.com
  * @date 2019/6/17 11:38
  */
-public class BaseAbstractHelper {
+public class BaseAbsHelper {
+    /**
+     * 需要过滤的标题前缀
+     */
+    public final static String TITLE_FILTER_PREFIX = "TEST_";
     /**
      * 隐藏系统标题栏
      *
@@ -105,7 +111,6 @@ public class BaseAbstractHelper {
             unbinder.unbind();
             unbinder = null;
         }
-
     }
 
     /**
@@ -115,6 +120,27 @@ public class BaseAbstractHelper {
         //清除Toast
         ToastUtil.closeToast();
     }
+
+
+    /**
+     * 刷新标题（多用于标题需要动态更新的情况）
+     */
+    public void setTitleName(AppCompatActivity activity, String titleName) {
+        if (!TextUtils.isEmpty(titleName) && !titleName.startsWith(TITLE_FILTER_PREFIX)) {
+            // 此处设置用于神策获取标题
+            activity.setTitle(titleName);
+        }
+    }
+
+    /**
+     * 显示和隐藏 TitleBar
+     *
+     * @param visible true 显示,反之隐藏
+     */
+    public void setTitleBarVisible(TitleBar mTitleBar, boolean visible) {
+        mTitleBar.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
 
     public void clearAllView(Window window) {
         ViewGroup view = (ViewGroup) window.getDecorView();

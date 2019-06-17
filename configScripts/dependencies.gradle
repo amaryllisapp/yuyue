@@ -30,7 +30,7 @@ ext {
             design             : "com.android.support:design:$design",
             cardview           : "com.android.support:cardview-v7:$cardview",
             statusbar          : "com.gyf.barlibrary:barlibrary:$statusbar",
-            titlebar           : "com.wuhenzhizao:titlebar:$titlebar",
+            titlebar           : "com.hjq:titlebar:$titlebar",
             tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayout@aar",
             //-----------------------------Router-----------------------------------------------
             arouter_api        : "com.alibaba:arouter-api:$arouter_api",

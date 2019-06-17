@@ -3,7 +3,7 @@ package com.lc.framework.core.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.lc.framework.core.activity.helper.BaseAbstractHelper;
+import com.lc.framework.core.activity.helper.BaseAbsHelper;
 import com.lc.framework.utils.LeakCanaryUtil;
 import com.ps.lc.utils.ActivityUtil;
 import com.ps.lc.utils.log.LogHelper;
@@ -11,31 +11,32 @@ import com.ps.lc.utils.log.LogHelper;
 import butterknife.Unbinder;
 
 /**
- * 类名：BaseAbstractActivity
+ * 类名：BaseAbsActivity
  * 描述：所有的基础类都需要继承该类执行
  *
  * @author liucheng - liucheng@xhg.com
  * @date 2019/6/17 11:36
  */
-public abstract class BaseAbstractActivity extends AppCompatActivity {
+public abstract class BaseAbsActivity extends AppCompatActivity {
 
-    private Unbinder mButterKnife;
 
-    protected BaseAbstractHelper mBaseAbstractHelper;
+
+    protected BaseAbsHelper mBaseAbsHelper;
+
+
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
-        mBaseAbstractHelper = new BaseAbstractHelper();
+        mBaseAbsHelper = new BaseAbsHelper();
         // 初始化页面全局化参数
         initParentWindowFeature();
         super.onCreate(savedInstanceState);
         // 隐藏系统标题栏
-        mBaseAbstractHelper.hideSystemTitleBar(this);
+        mBaseAbsHelper.hideSystemTitleBar(this);
         setContentView(getRootLayoutId());
-        // 绑定View
-        mButterKnife = mBaseAbstractHelper.bindButterKnife(this);
+
         // EventBus注册
-        mBaseAbstractHelper.registerEventBus(this, getEventBusEnable());
+        mBaseAbsHelper.registerEventBus(this, getEventBusEnable());
         // 添加Activity到Act池
         ActivityUtil.addActivity(this);
     }
@@ -45,8 +46,8 @@ public abstract class BaseAbstractActivity extends AppCompatActivity {
      *
      * @return
      */
-    public BaseAbstractHelper getBaseAbstractHelper() {
-        return mBaseAbstractHelper;
+    public BaseAbsHelper getBaseAbstractHelper() {
+        return mBaseAbsHelper;
     }
 
     /**
@@ -76,14 +77,16 @@ public abstract class BaseAbstractActivity extends AppCompatActivity {
     public void onDestroy() {
         // Activity栈中移除当前活动
         ActivityUtil.removeActivity(this);
-        // 解除注解绑定ButterKnife
-        mBaseAbstractHelper.unbindButterKnife(mButterKnife);
+
         // 清除Toast
-        mBaseAbstractHelper.destroyToast();
+        mBaseAbsHelper.destroyToast();
         // 解除EventBus注册
-        mBaseAbstractHelper.unRegisterEventBus(this);
+        mBaseAbsHelper.unRegisterEventBus(this);
         // 清除所有的View，避免出现有View无法不清除造成的内存泄漏问题
-        mBaseAbstractHelper.clearAllView(getWindow());
+        mBaseAbsHelper.clearAllView(getWindow());
+        if (mBaseAbsHelper != null) {
+            mBaseAbsHelper = null;
+        }
         super.onDestroy();
         //LeakCanary 内存泄漏监听
         LeakCanaryUtil.watchActivity(this);
