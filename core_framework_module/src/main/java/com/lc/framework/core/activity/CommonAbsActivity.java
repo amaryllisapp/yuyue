@@ -2,11 +2,12 @@ package com.lc.framework.core.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.lc.framework.R;
 import com.ps.lc.utils.widgets.titlebar.OnTitleBarListener;
-import com.ps.lc.utils.widgets.titlebar.TitleBar;
 import com.ps.lc.utils.widgets.titlebar.TitleBarManager;
 import com.ps.lc.utils.widgets.titlebar.TitleBarType;
 
@@ -21,21 +22,21 @@ import butterknife.Unbinder;
  */
 public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTitleBarListener {
 
-    public BaseAbsActivity mActivity;
+    protected BaseAbsActivity mActivity;
 
     private Unbinder mButterKnife;
     /**
-     * 用于适配沉浸式状态栏
-     */
-    private View mTopView;
-    /**
      * 标题栏
      */
-    protected TitleBar mTitleBar;
+    protected FrameLayout mRootView;
     /**
      * 内容区域
      */
     private LinearLayout mContainerLay;
+    /**
+     * 标题栏管理器
+     */
+    protected TitleBarManager mTitleBarManager;
 
     /**
      * 初始化WindowFeature的相关内容
@@ -69,12 +70,13 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivity = this;
+
         // 初始化根节点布局视图
         initParentView();
         // 加载内容布局到内容容器
         attchToContainerView();
-        initStatusBar();
         initTitleBar();
+        initStatusBar();
         // 绑定View
         mButterKnife = mBaseAbsHelper.bindButterKnife(this);
         initView(savedInstanceState, mContainerLay);
@@ -84,10 +86,8 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * 初始化根节点布局视图
      */
     private void initParentView() {
-        // 用于适配沉浸式状态栏
-        mTopView = findViewById(R.id.top_view);
         // 获取标题栏视图
-        mTitleBar = findViewById(R.id.title_bar);
+        mRootView = findViewById(R.id.root_view);
         // 内容视图容器
         mContainerLay = findViewById(R.id.root_container);
     }
@@ -112,6 +112,8 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * 初始化标题栏
      */
     protected void initTitleBar() {
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mTitleBarManager = new TitleBarManager().with(mRootView, params).listener(this);
         initTitleView();
         initTitleNameView();
     }
@@ -122,12 +124,12 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      */
     private void initTitleNameView() {
         // 加载视图内容
-        if (mTitleBar != null && mBaseAbsHelper != null) {
+        if (mTitleBarManager != null && mBaseAbsHelper != null) {
             String titleName = getTitleName();
             // 写入标题到Activity中
             mBaseAbsHelper.setTitleName(this, titleName);
             // 刷新titlebar
-            mTitleBar.setTitle(titleName);
+            mTitleBarManager.setTitle(titleName);
         }
     }
 
@@ -136,7 +138,7 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * (子类要扩展需要继承该方法实现)
      */
     public void initTitleView() {
-        new TitleBarManager().with(mTitleBar).type(TitleBarType.LEFT_ONLY).listener(this).apply();
+        mTitleBarManager.type(TitleBarType.LEFT_ONLY).apply();
     }
 
 

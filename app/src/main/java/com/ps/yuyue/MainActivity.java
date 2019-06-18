@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.lc.framework.core.activity.CommonAbsActivity;
 import com.lc.framework.router.share.ShareIntentManager;
-import com.ps.lc.utils.widgets.titlebar.TitleBarManager;
 import com.ps.lc.utils.widgets.titlebar.TitleBarType;
 
 import butterknife.BindView;
@@ -29,9 +29,21 @@ public class MainActivity extends CommonAbsActivity {
         return "主界面";
     }
 
+    /**
+     * 标题栏
+     */
     @Override
     public void initTitleView() {
-        new TitleBarManager().with(mTitleBar).type(TitleBarType.RIGHT_STRING).listener(this).apply();
+        mTitleBarManager.type(TitleBarType.RIGHT_STRING).apply();
+    }
+
+    @Override
+    protected void initStatusBar() {
+        ImmersionBar.with(this)
+                .transparentStatusBar()
+                .statusBarDarkFont(true, 0.2f)
+                .barColor(R.color.transparent)
+                .titleBar(mTitleBarManager.getTitleBar()).init();
     }
 
     @Override

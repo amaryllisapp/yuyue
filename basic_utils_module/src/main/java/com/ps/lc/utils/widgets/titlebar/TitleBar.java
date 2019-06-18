@@ -107,7 +107,7 @@ public class TitleBar extends FrameLayout
         addView(mLineView, 1);
     }
 
-    public void initStyle(AttributeSet attrs) {
+    private void initStyle(AttributeSet attrs) {
 
         // 判断默认样式是否为空
         if (sDefaultStyle == null) {
