@@ -30,8 +30,9 @@ ext {
             design             : "com.android.support:design:$design",
             cardview           : "com.android.support:cardview-v7:$cardview",
             statusbar          : "com.gyf.barlibrary:barlibrary:$statusbar",
-//            titlebar           : "com.hjq:titlebar:$titlebar",
             tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayout@aar",
+            smartrefreshlayout : "com.scwang.smartrefresh:SmartRefreshLayout:$smartrefreshlayout",
+            smartrefreshheader : "com.scwang.smartrefresh:SmartRefreshHeader:$smartrefreshlayout",
             //-----------------------------Router-----------------------------------------------
             arouter_api        : "com.alibaba:arouter-api:$arouter_api",
             arouter_compiler   : "com.alibaba:arouter-compiler:$arouter_compiler",
@@ -60,6 +61,7 @@ ext {
                     supportDependencies.design,
                     supportDependencies.cardview,
                     supportDependencies.tablayout,
+
             ],
             /**
              * 工具类
@@ -82,7 +84,9 @@ ext {
                     supportDependencies.recyclerviewadpater,
                     supportDependencies.recyclerview,
                     supportDependencies.statusbar,
-                    supportDependencies.leakcanary
+                    supportDependencies.leakcanary,
+                    supportDependencies.smartrefreshlayout,
+                    supportDependencies.smartrefreshheader,
 
             ],
             /**

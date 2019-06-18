@@ -43,6 +43,7 @@ public class MainActivity extends CommonAbsActivity {
                 .transparentStatusBar()
                 .statusBarDarkFont(true, 0.2f)
                 .barColor(R.color.transparent)
+                .keyboardEnable(true)//解决软键盘与底部输入框冲突问题
                 .titleBar(mTitleBarManager.getTitleBar()).init();
     }
 

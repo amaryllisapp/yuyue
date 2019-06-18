@@ -3,7 +3,7 @@
   "applicationId":"com.ps.yuyue",
   "versionCode":1001,
   "versionName":"1.0.1",
-  "minSdkVersion":16,
+  "minSdkVersion":17,
   "targetSdkVersion":28,
   "compileSdkVersion":28,
   "buildToolsVersion":"28.0.3",
@@ -18,6 +18,7 @@
   "statusbar":"2.3.0",
   "titlebar":"5.0",
   "tabLayout":"2.1.0",
+  "smartrefreshlayout":"1.1.0-alpha-28",
 
   "_commentLib": "图片库版本",
   "gilde":"4.7.1",
@@ -40,7 +41,7 @@
   "arouter_compiler":"1.2.2",
 
   "_commentLib": "通用库版本",
-  "multidex":"1.0.3",
+  "multidex":"1.0.2",
   "eventbus":"3.0.0",
   "xxpermissions":"5.2",
   "butterknife":"8.8.1",

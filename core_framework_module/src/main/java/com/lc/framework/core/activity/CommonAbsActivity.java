@@ -77,6 +77,7 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
         attchToContainerView();
         initTitleBar();
         initStatusBar();
+
         // 绑定View
         mButterKnife = mBaseAbsHelper.bindButterKnife(this);
         initView(savedInstanceState, mContainerLay);
@@ -112,7 +113,8 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * 初始化标题栏
      */
     protected void initTitleBar() {
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams params =
+                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mTitleBarManager = new TitleBarManager().with(mRootView, params).listener(this);
         initTitleView();
         initTitleNameView();
