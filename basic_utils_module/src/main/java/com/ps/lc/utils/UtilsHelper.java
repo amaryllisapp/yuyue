@@ -17,6 +17,7 @@ public class UtilsHelper {
     public static void init(Application application, boolean DEBUG) {
         AppContextUtil.init(application);
         LogHelper.init(DEBUG, application.getPackageName());
+        ResourceUtil.init(application);
         SharedManager.init(application);
         HardwareUtil.init(application);
     }

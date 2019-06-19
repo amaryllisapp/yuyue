@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.lc.framework.R;
+import com.ps.lc.utils.ResourceUtil;
 import com.ps.lc.utils.widgets.titlebar.OnTitleBarListener;
 import com.ps.lc.utils.widgets.titlebar.TitleBarManager;
 import com.ps.lc.utils.widgets.titlebar.TitleBarType;
@@ -32,11 +33,14 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
     /**
      * 内容区域
      */
-    private LinearLayout mContainerLay;
+    protected LinearLayout mContainerLay;
     /**
      * 标题栏管理器
      */
     protected TitleBarManager mTitleBarManager;
+
+    protected int titleBarPx = ResourceUtil.getDimen(R.dimen.sx48);
+
 
     /**
      * 初始化WindowFeature的相关内容
@@ -73,11 +77,6 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
 
         // 初始化根节点布局视图
         initParentView();
-        // 加载内容布局到内容容器
-        attchToContainerView();
-        initTitleBar();
-        initStatusBar();
-
         // 绑定View
         mButterKnife = mBaseAbsHelper.bindButterKnife(this);
         initView(savedInstanceState, mContainerLay);
@@ -89,8 +88,24 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
     private void initParentView() {
         // 获取标题栏视图
         mRootView = findViewById(R.id.root_view);
-        // 内容视图容器
-        mContainerLay = findViewById(R.id.root_container);
+        initTitleBar();
+        initStatusBar();
+        attchContainerToRootView();
+        // 加载内容布局到内容容器
+        attchToContainerView();
+    }
+
+    /**
+     * 加载内容容器到根布局
+     * 子类实现需继承该布局实现
+     */
+    protected void attchContainerToRootView() {
+        mContainerLay = new LinearLayout(mActivity);
+        mContainerLay.setOrientation(LinearLayout.VERTICAL);
+        FrameLayout.LayoutParams params =
+                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        params.topMargin = titleBarPx;
+        mRootView.addView(mContainerLay, params);
     }
 
     /**
@@ -114,7 +129,7 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      */
     protected void initTitleBar() {
         FrameLayout.LayoutParams params =
-                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, titleBarPx);
         mTitleBarManager = new TitleBarManager().with(mRootView, params).listener(this);
         initTitleView();
         initTitleNameView();

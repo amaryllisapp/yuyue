@@ -1,6 +1,5 @@
 package com.lc.framework.core.activity.helper;
 
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -28,6 +27,7 @@ public class BaseAbsHelper {
      * 需要过滤的标题前缀
      */
     public final static String TITLE_FILTER_PREFIX = "TEST_";
+
     /**
      * 隐藏系统标题栏
      *
@@ -104,6 +104,7 @@ public class BaseAbsHelper {
 
     /**
      * 解除Butterknife绑定
+     *
      * @param unbinder
      */
     public void unbindButterKnife(Unbinder unbinder) {

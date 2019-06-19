@@ -63,6 +63,10 @@ ext {
                     supportDependencies.tablayout,
 
             ],
+            widgetsDependencies     :[
+                    supportDependencies.utilsModule,
+                    supportDependencies.appcompatV7,
+            ],
             /**
              * 工具类
              */

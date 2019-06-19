@@ -19,11 +19,7 @@ import butterknife.Unbinder;
  */
 public abstract class BaseAbsActivity extends AppCompatActivity {
 
-
-
     protected BaseAbsHelper mBaseAbsHelper;
-
-
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
