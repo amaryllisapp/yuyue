@@ -53,6 +53,20 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
      */
     private boolean mIsOpenRefreshOnly = true;
 
+    /**
+     * 是否启用下拉刷新（默认启用）pull-down refresh
+     */
+    private boolean enablePullDownRefresh = true;
+
+    /**
+     * 设置在内容不满一页的时候，是否可以上拉加载更多
+     */
+    private boolean mEnableLoadMoreWhenContentNotFull = false;
+    /**
+     * 设置是否在没有更多数据之后 Footer 跟随内容
+     */
+    private boolean mEnableFooterFollowWhenNoMoreData = true;
+
 
     @Override
     public int layoutId() {
@@ -63,10 +77,6 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
 
     public abstract void convertItem(BaseViewHolder baseViewHolder, T t);
 
-    @Override
-    protected String getTitleName() {
-        return null;
-    }
 
     @Override
     protected void initView(Bundle savedInstanceState, LinearLayout containerLay) {
@@ -142,11 +152,21 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
      * 初始化刷新视图
      */
     private void initRefreshView(){
+        // 设置是否启用上拉加载更多（默认启用）
         mRefreshLayout.setEnableLoadMore(mIsOpenLoadMore);
+        // 是否启用下拉刷新（默认启用）
         mRefreshLayout.setEnableRefresh(mIsOpenRefreshOnly);
+        // 设置指定的 Header
         mRefreshLayout.setRefreshHeader(getRefreshHeaderView());
+        // 设置指定的 Footer
         mRefreshLayout.setRefreshFooter(getRefreshFooterView());
-        mRefreshLayout.setEnableHeaderTranslationContent(true);
+        // 是否启用下拉刷新（默认启用）
+        mRefreshLayout.setEnableHeaderTranslationContent(enablePullDownRefresh);
+        // 设置在内容不满一页的时候，是否可以上拉加载更多
+        mRefreshLayout.setEnableLoadMoreWhenContentNotFull(mEnableLoadMoreWhenContentNotFull);
+        // 设置是否在没有更多数据之后 Footer 跟随内容
+        mRefreshLayout.setEnableFooterFollowWhenNoMoreData(mEnableFooterFollowWhenNoMoreData);
+        // 设置自动刷新和加载更多的监听
         mRefreshLayout.setOnRefreshLoadMoreListener(this);
     }
 
@@ -206,9 +226,36 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
      * 仅开启自动刷新功能
      * 此方法一定要在加载mRefreshLayout等组件之前执行
      */
-    public void openRefreshOnly(){
+    protected void openRefreshOnly(){
         mIsOpenLoadMore = false;
         mIsOpenRefreshOnly = true;
+    }
+
+
+    /**
+     * 是否启用下拉刷新（默认启用）pull-down refresh
+     */
+    protected void setEnablePullDownRefresh(boolean enable){
+        this.enablePullDownRefresh = enable;
+    }
+
+
+    /**
+     *设置在内容不满一页的时候，是否可以上拉加载更多
+     * @param enable
+     */
+    protected void setEnableLoadMoreWhenContentNotFull(boolean enable){
+        this.mEnableLoadMoreWhenContentNotFull = enable;
+    }
+
+
+
+    /**
+     * 设置是否在没有更多数据之后 Footer 跟随内容
+     * @param enable
+     */
+    protected void setEnableFooterFollowWhenNoMoreData(boolean enable){
+        this.mEnableFooterFollowWhenNoMoreData = enable;
     }
 
     @Override
@@ -246,10 +293,17 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
     }
 
     /**
+     * 自动加载更多
+     */
+    protected void autoRefresh(){
+        mRefreshLayout.autoRefresh();
+    }
+
+    /**
      * 刷新结束
      */
-    protected void refreshComplate(){
-        mRefreshLayout.finishRefresh();
+    protected void finishRefresh(int delay){
+        mRefreshLayout.finishRefresh(delay);
     }
 
     /**

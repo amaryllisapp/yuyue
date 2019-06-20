@@ -11,6 +11,9 @@ import com.ps.lc.utils.ResourceUtil;
 import com.ps.lc.utils.widgets.titlebar.OnTitleBarListener;
 import com.ps.lc.utils.widgets.titlebar.TitleBarManager;
 import com.ps.lc.utils.widgets.titlebar.TitleBarType;
+import com.ps.lc.widget.emptyview.EmptyViewHelper;
+import com.ps.lc.widget.emptyview.EmptyViewType;
+import com.ps.lc.widget.emptyview.OnEmptyViewClickListener;
 
 import butterknife.Unbinder;
 
@@ -21,7 +24,7 @@ import butterknife.Unbinder;
  * @author liucheng - liucheng@xhg.com
  * @date 2019/6/17 14:41
  */
-public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTitleBarListener {
+public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTitleBarListener, OnEmptyViewClickListener {
 
     protected BaseAbsActivity mActivity;
 
@@ -38,6 +41,11 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * 标题栏管理器
      */
     protected TitleBarManager mTitleBarManager;
+
+    /**
+     * 情感图帮助类
+     */
+    protected EmptyViewHelper mEmptyViewHelper;
 
     protected int titleBarPx = ResourceUtil.getDimen(R.dimen.sx48);
 
@@ -79,6 +87,10 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
         initParentView();
         // 绑定View
         mButterKnife = mBaseAbsHelper.bindButterKnife(this);
+        // 初始化情感图
+        mEmptyViewHelper = new EmptyViewHelper(this);
+        mEmptyViewHelper.bind(mContainerLay);
+
         initView(savedInstanceState, mContainerLay);
     }
 
@@ -155,7 +167,7 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * (子类要扩展需要继承该方法实现)
      */
     public void initTitleView() {
-        mTitleBarManager.type(TitleBarType.LEFT_ONLY).apply();
+        mTitleBarManager.type(TitleBarType.LEFT_CENTER).apply();
     }
 
 
@@ -201,6 +213,44 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      */
     @Override
     public void onRightClick(View v) {
+
+    }
+
+    /**
+     * 显示无内容情感图
+     */
+    public void showNotContentError(String content) {
+        mEmptyViewHelper.showNODataView(content, this);
+    }
+
+    /**
+     * 显示无内容情感图 (下划线文案)
+     */
+    public void showNotContentError(String content, String underLineText) {
+        mEmptyViewHelper.showNODataView(content, null, underLineText, this);
+    }
+
+    /**
+     * 显示连接失败情感图
+     */
+    public void showConnectionError() {
+        mEmptyViewHelper.showConnectErrorView(this);
+    }
+
+    /**
+     * 显示网络异常情感图
+     */
+    public void showNetWorkError() {
+        mEmptyViewHelper.showNetworkErrorView(this);
+    }
+
+    /**
+     * 情感图点击事件(子类实现细节)
+     *
+     * @param view
+     */
+    @Override
+    public void emptyViewClick(View view, @EmptyViewType int flag) {
 
     }
 }

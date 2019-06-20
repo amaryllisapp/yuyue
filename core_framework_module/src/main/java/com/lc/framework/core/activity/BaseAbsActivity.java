@@ -7,6 +7,7 @@ import com.lc.framework.core.activity.helper.BaseAbsHelper;
 import com.lc.framework.utils.LeakCanaryUtil;
 import com.ps.lc.utils.ActivityUtil;
 import com.ps.lc.utils.log.LogHelper;
+import com.ps.lc.widget.emptyview.EmptyViewHelper;
 
 import butterknife.Unbinder;
 

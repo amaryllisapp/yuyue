@@ -1,17 +1,11 @@
 package com.ps.yuyue;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.lc.framework.core.activity.ListAbsActivity;
-import com.scwang.smartrefresh.header.BezierCircleHeader;
-import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
+import com.lc.framework.core.activity.SimpleListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,18 +21,38 @@ import static com.lc.framework.router.share.ShareRouterContants.PUBLIC_MAIN;
  * @date 2019/6/14 16:58
  */
 @Route(path = PUBLIC_MAIN)
-public class Test2Activity extends ListAbsActivity<Test2Activity.Item> {
+public class Test2Activity extends SimpleListActivity<Test2Activity.Item> {
+    private int maxSize = 1;
+    private int page = 0;
+    private int pagesize = 10;
+
     public List<Item> getList() {
+        if (page > maxSize) {
+            return null;
+        }
+        if (page == maxSize) {
+            pagesize = 5;
+        }
         List<Item> list = new ArrayList<>();
-        Item item = new Item();
-        item.name = "刘承";
-        item.value = "性别：男";
-        list.add(item);
-        Item item1 = new Item();
-        item1.name = "刘承111";
-        item1.value = "性别：男11";
-        list.add(item1);
+        for (int i = 0; i < pagesize; i++) {
+            Item item = new Item();
+            item.name = "刘承" + page + "" + i;
+            item.value = "性别：男" + page + "" + i;
+            list.add(item);
+        }
         return list;
+    }
+
+    @Override
+    protected String getTitleName() {
+        return "列表页面";
+    }
+
+    @Override
+    protected void initView(Bundle savedInstanceState, LinearLayout containerLay) {
+        setAutoRefresh(false);
+        setNoContentTips("貌似没有您的数据哦~");
+        super.initView(savedInstanceState, containerLay);
     }
 
 
@@ -48,10 +62,9 @@ public class Test2Activity extends ListAbsActivity<Test2Activity.Item> {
     }
 
     @Override
-    protected void initView(Bundle savedInstanceState, LinearLayout containerLay) {
-//        openRefreshOnly();
-        super.initView(savedInstanceState, containerLay);
-        setNewData(getList());
+    protected void loadData(int state, int page) {
+        this.page = page;
+        setListData(getList());
     }
 
     @Override
@@ -60,45 +73,6 @@ public class Test2Activity extends ListAbsActivity<Test2Activity.Item> {
                 .setText(android.R.id.text2, item.value);
     }
 
-    @Override
-    protected RefreshHeader getRefreshHeaderView() {
-        BezierCircleHeader header = new BezierCircleHeader(mActivity);
-        return header;
-    }
-
-    @Override
-    protected RefreshFooter getRefreshFooterView(){
-        BallPulseFooter footer = new BallPulseFooter(mActivity);
-        return footer;
-    }
-
-
-    @Override
-    public void onRefresh(@NonNull final RefreshLayout refreshLayout) {
-        refreshLayout.getLayout().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                refreshLayout.finishRefresh();
-//                refreshLayout.resetNoMoreData();//setNoMoreData(false);//恢复上拉状态
-            }
-        }, 2000);
-    }
-
-    /**
-     * 加载更多时回调
-     *
-     * @param refreshLayout
-     */
-    @Override
-    public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-        refreshLayout.getLayout().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                refreshLayout.finishLoadMore();
-                refreshLayout.resetNoMoreData();//setNoMoreData(false);//恢复上拉状态
-            }
-        }, 2000);
-    }
 
     public class Item {
         public String name;

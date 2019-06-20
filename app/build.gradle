@@ -65,6 +65,11 @@ android {
         abortOnError false
     }
 
+    lintOptions {
+        disable 'MissingTranslation'
+        disable 'ExtraTranslation'
+    }
+
 
     buildTypes {
         // 本地测试(开发环境)

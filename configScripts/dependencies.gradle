@@ -81,6 +81,8 @@ ext {
              */
             frameworkDependencies: [
                     supportDependencies.utilsModule,
+                    supportDependencies.widgetsModule,
+
                     supportDependencies.arouter_api,
                     supportDependencies.multidex,
                     supportDependencies.butterKnife,
