@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lc.framework.R;
+import com.lc.framework.core.activity.listener.BaseAdapterListener;
+import com.lc.framework.core.activity.adapter.BaseListAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
@@ -35,7 +37,7 @@ import static android.widget.LinearLayout.VERTICAL;
  */
 
 public abstract class ListAbsActivity<T> extends CommonAbsActivity implements BaseQuickAdapter.OnItemClickListener,
-        BaseQuickAdapter.OnItemChildClickListener, OnRefreshLoadMoreListener {
+        BaseQuickAdapter.OnItemChildClickListener, OnRefreshLoadMoreListener, BaseAdapterListener<T> {
 
     protected SmartRefreshLayout mRefreshLayout;
 
@@ -73,9 +75,9 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
         return R.layout.acty_list_parent;
     }
 
-    public abstract int itemLayoutId();
+    /*public abstract int itemLayoutId();
 
-    public abstract void convertItem(BaseViewHolder baseViewHolder, T t);
+    public abstract void convertItem(BaseViewHolder baseViewHolder, T t);*/
 
 
     @Override
@@ -87,11 +89,12 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
 
     /**
      * 初始化RecyclerView列表
+     *
      * @param containerLay
      */
     protected void initRecyclerView(LinearLayout containerLay) {
-        if(mAdapter == null){
-            mAdapter = new ListBaseAdapter();
+        if (mAdapter == null) {
+            mAdapter = new BaseListAdapter(this);
         }
         mRefreshLayout = containerLay.findViewById(R.id.base_refresh_layout);
         mRecyclerView = new RecyclerView(mActivity);
@@ -108,26 +111,29 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
     /**
      * 子类ITEM动画
      * 如需其他动画可继承该方法进行扩展
+     *
      * @return
      */
-    protected RecyclerView.ItemAnimator getItemAnimator(){
+    protected RecyclerView.ItemAnimator getItemAnimator() {
         return new DefaultItemAnimator();
     }
 
     /**
      * 布局显示（网格布局或者线性布局或者流式布局等）
+     *
      * @return
      */
-    protected RecyclerView.LayoutManager getLayoutManager(){
+    protected RecyclerView.LayoutManager getLayoutManager() {
         return new LinearLayoutManager(mActivity);
     }
 
     /**
      * 分割线
      * 如需多样化可继承该方法进行扩展
+     *
      * @return
      */
-    protected RecyclerView.ItemDecoration getItemDecoration(){
+    protected RecyclerView.ItemDecoration getItemDecoration() {
         return new DividerItemDecoration(mActivity, VERTICAL);
     }
 
@@ -139,19 +145,30 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
         if (getHeaderView() != null) {
             mAdapter.addHeaderView(getHeaderView());
         }
-        if(isOpenLoadAnimation()){
-            mAdapter.openLoadAnimation();
-        }else{
+        if (setOpenLoadAnimation()) {
+            mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
+        } else {
             mAdapter.closeLoadAnimation();
         }
+        // 是否第一次加载时显示动画
+        mAdapter.isFirstOnly(true);
         mAdapter.setOnItemClickListener(this);
         mAdapter.setOnItemChildClickListener(this);
     }
 
     /**
+     * 设置Adapter
+     *
+     * @param adapter
+     */
+    protected void setAdapter(BaseQuickAdapter adapter) {
+        this.mAdapter = adapter;
+    }
+
+    /**
      * 初始化刷新视图
      */
-    private void initRefreshView(){
+    private void initRefreshView() {
         // 设置是否启用上拉加载更多（默认启用）
         mRefreshLayout.setEnableLoadMore(mIsOpenLoadMore);
         // 是否启用下拉刷新（默认启用）
@@ -170,54 +187,57 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
         mRefreshLayout.setOnRefreshLoadMoreListener(this);
     }
 
-    public void setNewData(List<T> data){
+    public void setNewData(List<T> data) {
         mAdapter.replaceData(data);
     }
 
-    public void addData(List<T> data){
+    public void addData(List<T> data) {
         mAdapter.addData(data);
     }
 
-    public void addData(T data){
+    public void addData(T data) {
         mAdapter.addData(data);
     }
 
-    public void removeData(int position){
+    public void removeData(int position) {
         mAdapter.remove(position);
     }
 
     /**
      * 设置headerView
+     *
      * @return
      */
     protected View getHeaderView() {
         return null;
     }
 
-    protected RefreshHeader getRefreshHeaderView(){
+    protected RefreshHeader getRefreshHeaderView() {
         ClassicsHeader header = new ClassicsHeader(mRefreshLayout.getContext());
         return header;
     }
 
-    protected RefreshFooter getRefreshFooterView(){
+    protected RefreshFooter getRefreshFooterView() {
         ClassicsFooter footer = new ClassicsFooter(mRefreshLayout.getContext());
         return footer;
     }
 
     /**
      * 是否开启加载动画
+     *
      * @return
      */
-    protected boolean isOpenLoadAnimation(){
+    protected boolean setOpenLoadAnimation() {
         return false;
     }
 
     /**
      * 是否开发刷新和加载更多功能
      * 此方法一定要在加载mRefreshLayout等组件之前执行
+     *
      * @return
      */
-    protected void isOpenRefreshLoadMore(boolean isOpenRefreshLoadMore){
+    protected void isOpenRefreshLoadMore(boolean isOpenRefreshLoadMore) {
         mIsOpenLoadMore = isOpenRefreshLoadMore;
         mIsOpenRefreshOnly = isOpenRefreshLoadMore;
     }
@@ -226,7 +246,7 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
      * 仅开启自动刷新功能
      * 此方法一定要在加载mRefreshLayout等组件之前执行
      */
-    protected void openRefreshOnly(){
+    protected void openRefreshOnly() {
         mIsOpenLoadMore = false;
         mIsOpenRefreshOnly = true;
     }
@@ -235,26 +255,27 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
     /**
      * 是否启用下拉刷新（默认启用）pull-down refresh
      */
-    protected void setEnablePullDownRefresh(boolean enable){
+    protected void setEnablePullDownRefresh(boolean enable) {
         this.enablePullDownRefresh = enable;
     }
 
 
     /**
-     *设置在内容不满一页的时候，是否可以上拉加载更多
+     * 设置在内容不满一页的时候，是否可以上拉加载更多
+     *
      * @param enable
      */
-    protected void setEnableLoadMoreWhenContentNotFull(boolean enable){
+    protected void setEnableLoadMoreWhenContentNotFull(boolean enable) {
         this.mEnableLoadMoreWhenContentNotFull = enable;
     }
 
 
-
     /**
      * 设置是否在没有更多数据之后 Footer 跟随内容
+     *
      * @param enable
      */
-    protected void setEnableFooterFollowWhenNoMoreData(boolean enable){
+    protected void setEnableFooterFollowWhenNoMoreData(boolean enable) {
         this.mEnableFooterFollowWhenNoMoreData = enable;
     }
 
@@ -265,6 +286,7 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
 
     /**
      * 点击Item时触发
+     *
      * @param adapter
      * @param view
      * @param position
@@ -276,6 +298,7 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
 
     /**
      * 刷新时回调
+     *
      * @param refreshLayout
      */
     @Override
@@ -285,6 +308,7 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
 
     /**
      * 加载更多时回调
+     *
      * @param refreshLayout
      */
     @Override
@@ -295,44 +319,29 @@ public abstract class ListAbsActivity<T> extends CommonAbsActivity implements Ba
     /**
      * 自动加载更多
      */
-    protected void autoRefresh(){
+    protected void autoRefresh() {
         mRefreshLayout.autoRefresh();
     }
 
     /**
      * 刷新结束
      */
-    protected void finishRefresh(int delay){
+    protected void finishRefresh(int delay) {
         mRefreshLayout.finishRefresh(delay);
     }
 
     /**
      * 加载更多结束(不再触发加载更多)
      */
-    protected void finishLoadMoreWithNoMoreData(){
+    protected void finishLoadMoreWithNoMoreData() {
         mRefreshLayout.finishLoadMoreWithNoMoreData();
     }
 
     /**
      * 加载更多结束（当次结束）
      */
-    protected void finishLoadMore(){
+    protected void finishLoadMore() {
         mRefreshLayout.finishLoadMore();
-    }
-
-    /**
-     * 适配器
-     */
-    public class ListBaseAdapter extends BaseQuickAdapter<T, BaseViewHolder> {
-
-        ListBaseAdapter() {
-            super(itemLayoutId());
-        }
-
-        @Override
-        protected void convert(BaseViewHolder baseViewHolder, T t) {
-            convertItem(baseViewHolder, t);
-        }
     }
 
     /**
