@@ -1,6 +1,7 @@
 package com.lc.framework.core.activity.listener;
 
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.entity.SectionEntity;
 
 /**
  * 类名：com.lc.framework.core.activity.adapter
@@ -9,17 +10,19 @@ import com.chad.library.adapter.base.BaseViewHolder;
  * @author liucheng - liucheng@xhg.com
  * @date 2019/6/20 15:25
  */
-public interface BaseAdapterListener<T> {
+public interface BaseSectionAdapterListener<T extends SectionEntity> extends BaseAdapterListener<T> {
     /**
-     * 子类布局
+     * 头部布局
+     *
      * @return
      */
-    int itemLayoutId();
+    int headerItemLayoutId();
 
     /**
-     * 子类布局填充
+     * 头部布局填充
+     *
      * @param baseViewHolder
      * @param t
      */
-    void convertItem(BaseViewHolder baseViewHolder, T t);
+    void convertHeaderItem(BaseViewHolder baseViewHolder, T t);
 }
