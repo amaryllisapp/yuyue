@@ -1,13 +1,14 @@
 package com.lc.framework.core.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.lc.framework.R;
-import com.ps.lc.utils.DisplayUtil;
+import com.lc.framework.core.activity.fragment.BaseAbsFragment;
 import com.ps.lc.utils.ResourceUtil;
 import com.ps.lc.utils.widgets.titlebar.OnTitleBarListener;
 import com.ps.lc.utils.widgets.titlebar.TitleBarManager;
@@ -20,13 +21,12 @@ import butterknife.Unbinder;
 
 /**
  * 类名：com.lc.framework.core.activity
- * 描述：通用抽象基类（常用语普通的列表和详情页面）
+ * 描述：
  *
  * @author liucheng - liucheng@xhg.com
- * @date 2019/6/17 14:41
+ * @date 2019/6/24 16:27
  */
-public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTitleBarListener, OnEmptyViewClickListener {
-
+public abstract class BaseCommFragmentActivity extends BaseAbsActivity implements OnTitleBarListener, OnEmptyViewClickListener {
     protected BaseAbsActivity mActivity;
 
     private Unbinder mButterKnife;
@@ -62,13 +62,6 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
     protected int getRootLayoutId() {
         return R.layout.acty_common_parent;
     }
-
-    /**
-     * 获取布局ID
-     *
-     * @return
-     */
-    public abstract int layoutId();
 
     /**
      * 获取标题名称
@@ -115,9 +108,10 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
     protected void attchContainerToRootView() {
         mContainerLay = new LinearLayout(mActivity);
         mContainerLay.setOrientation(LinearLayout.VERTICAL);
+        mContainerLay.setId(R.id.custom_btn1);
         FrameLayout.LayoutParams params =
                 new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        params.topMargin = mTitleBarManager.getTitleHeight();
+        params.topMargin = titleBarPx;
         mRootView.addView(mContainerLay, params);
     }
 
@@ -125,8 +119,14 @@ public abstract class CommonAbsActivity extends BaseAbsActivity implements OnTit
      * 加载内容布局到内容容器
      */
     private void attchToContainerView() {
-        mContainerLay.addView(getLayoutInflater().inflate(layoutId(), mContainerLay, false));
+        BaseAbsFragment fragment = fragment();
+        BaseAbsFragment tag = findFragment(fragment.getClass());
+        if (tag == null) {
+            loadRootFragment(R.id.custom_btn1, fragment());
+        }
     }
+
+    protected abstract BaseAbsFragment fragment();
 
     /**
      * 初始化状态栏

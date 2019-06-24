@@ -86,6 +86,13 @@ public class TitleBarManager {
         return mTitleBar;
     }
 
+    public int getTitleHeight(){
+        if(mTitleBar!= null){
+            return mTitleBar.getLayoutParams().height;
+        }
+        return 0;
+    }
+
     public void onDestroy() {
         if (mBaseFacade != null) {
             mBaseFacade.destroy();

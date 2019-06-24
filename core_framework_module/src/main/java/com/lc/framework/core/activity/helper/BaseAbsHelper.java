@@ -1,5 +1,6 @@
 package com.lc.framework.core.activity.helper;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -96,6 +97,10 @@ public class BaseAbsHelper {
      */
     public Unbinder bindButterKnife(AppCompatActivity activity) {
         return ButterKnife.bind(activity);
+    }
+
+    public Unbinder bindButterKnife(Fragment fragment, View view) {
+        return ButterKnife.bind(fragment, view);
     }
 
     public Unbinder bindButterKnife(View view) {

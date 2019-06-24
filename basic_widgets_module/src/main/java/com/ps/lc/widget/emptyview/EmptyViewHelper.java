@@ -29,7 +29,7 @@ public class EmptyViewHelper {
     /**
      * 情感图的父类视图
      */
-    private LinearLayout mParentView;
+    private ViewGroup mParentView;
     /**
      * 情感图视图
      */
@@ -67,14 +67,14 @@ public class EmptyViewHelper {
      *
      * @param rootView
      */
-    public void bind(LinearLayout rootView) {
+    public void bind(ViewGroup rootView) {
         mParentView = rootView;
         // 将情感图绑定到内容根目录的第一个位置
-        mEmptyView.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
+        mEmptyView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mParentView.addView(mEmptyView, 0, mEmptyView.getLayoutParams());
 
-        if (mParentView.getChildCount() > 1) {
-            mContainerView = (ViewGroup) mParentView.getChildAt(1);
+        if (mParentView.getChildCount() > 0) {
+            mContainerView = (ViewGroup) mParentView.getChildAt(0);
         }
         mEmptyView.hide();
     }

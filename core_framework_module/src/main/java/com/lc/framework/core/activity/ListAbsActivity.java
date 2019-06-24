@@ -10,10 +10,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.lc.framework.R;
-import com.lc.framework.core.activity.listener.BaseAdapterListener;
 import com.lc.framework.core.activity.adapter.BaseListAdapter;
+import com.lc.framework.core.activity.listener.BaseAdapterListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;

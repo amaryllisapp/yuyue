@@ -18,7 +18,7 @@ import butterknife.Unbinder;
  * @author liucheng - liucheng@xhg.com
  * @date 2019/6/17 11:36
  */
-public abstract class BaseAbsActivity extends AppCompatActivity {
+public abstract class BaseAbsActivity extends SupportAbsActivity {
 
     protected BaseAbsHelper mBaseAbsHelper;
 
