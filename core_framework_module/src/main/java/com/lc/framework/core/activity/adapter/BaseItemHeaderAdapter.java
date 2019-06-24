@@ -10,9 +10,15 @@ import com.lc.framework.core.activity.listener.BaseSectionAdapterListener;
 import java.util.List;
 
 /**
- * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+ *  
+ * 类名：BaseItemHeaderAdapter
+ * 描述：基础列表的适配器
+ *
+ * @author liucheng - liucheng@xhg.com
+ *
+ * @date 2019/6/24 10:30
  */
-public class BaseSectionAdapter<T extends SectionEntity> extends BaseSectionQuickAdapter<T, BaseViewHolder> {
+public class BaseItemHeaderAdapter<T extends SectionEntity> extends BaseSectionQuickAdapter<T, BaseViewHolder> {
 
     private BaseSectionAdapterListener mBaseSectionAdapterListener;
 
@@ -20,7 +26,7 @@ public class BaseSectionAdapter<T extends SectionEntity> extends BaseSectionQuic
      * @param baseSectionAdapterListener 适配器回调
      * @param data                       A new list is created out of this one to avoid mutable list
      */
-    public BaseSectionAdapter(BaseSectionAdapterListener baseSectionAdapterListener, @Nullable List data) {
+    public BaseItemHeaderAdapter(BaseSectionAdapterListener baseSectionAdapterListener, @Nullable List data) {
         super(baseSectionAdapterListener.itemLayoutId(), baseSectionAdapterListener.headerItemLayoutId(), data);
     }
 
