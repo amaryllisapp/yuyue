@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lc.framework.core.activity.SimpleListActivity;
-import com.lc.framework.core.activity.listener.BaseAdapterListener;
+import com.lc.framework.core.activity.list.listener.BaseAdapterListener;
 
 import java.util.ArrayList;
 import java.util.List;

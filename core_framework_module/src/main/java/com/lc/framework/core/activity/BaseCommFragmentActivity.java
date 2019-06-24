@@ -1,7 +1,6 @@
 package com.lc.framework.core.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -111,7 +110,7 @@ public abstract class BaseCommFragmentActivity extends BaseAbsActivity implement
         mContainerLay.setId(R.id.custom_btn1);
         FrameLayout.LayoutParams params =
                 new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        params.topMargin = titleBarPx;
+        params.topMargin = mTitleBarManager.getTitleHeight();
         mRootView.addView(mContainerLay, params);
     }
 

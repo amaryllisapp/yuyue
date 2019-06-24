@@ -1,11 +1,11 @@
-package com.lc.framework.core.activity.listener;
+package com.lc.framework.core.activity.list.listener;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 import java.util.List;
 
 /**
- * 类名：com.lc.framework.core.activity.adapter
+ * 类名：com.lc.framework.core.activity.list.adapter
  * 描述：
  *
  * @author liucheng - liucheng@xhg.com

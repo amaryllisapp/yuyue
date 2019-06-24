@@ -1,8 +1,8 @@
-package com.lc.framework.core.activity.adapter;
+package com.lc.framework.core.activity.list.adapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.lc.framework.core.activity.listener.BaseAdapterListener;
+import com.lc.framework.core.activity.list.listener.BaseAdapterListener;
 
 /**
  * 类名：com.ps.yuyue.adapter

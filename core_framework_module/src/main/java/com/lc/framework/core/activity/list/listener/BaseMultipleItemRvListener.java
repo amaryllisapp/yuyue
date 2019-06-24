@@ -1,4 +1,4 @@
-package com.lc.framework.core.activity.listener;
+package com.lc.framework.core.activity.list.listener;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.chad.library.adapter.base.provider.BaseItemProvider;
@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.provider.BaseItemProvider;
 import java.util.List;
 
 /**
- * 类名：com.lc.framework.core.activity.adapter
+ * 类名：com.lc.framework.core.activity.list.adapter
  * 描述：多类型构建监听器
  *
  * @author liucheng - liucheng@xhg.com

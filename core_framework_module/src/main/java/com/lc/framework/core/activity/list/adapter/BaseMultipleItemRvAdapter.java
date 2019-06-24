@@ -1,4 +1,4 @@
-package com.lc.framework.core.activity.adapter;
+package com.lc.framework.core.activity.list.adapter;
 
 import android.support.annotation.Nullable;
 
@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.MultipleItemRvAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.chad.library.adapter.base.provider.BaseItemProvider;
-import com.lc.framework.core.activity.listener.BaseMultipleItemRvListener;
+import com.lc.framework.core.activity.list.listener.BaseMultipleItemRvListener;
 
 import java.util.List;
 

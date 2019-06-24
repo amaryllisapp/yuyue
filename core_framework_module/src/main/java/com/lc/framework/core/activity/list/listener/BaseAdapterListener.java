@@ -1,9 +1,9 @@
-package com.lc.framework.core.activity.listener;
+package com.lc.framework.core.activity.list.listener;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 
 /**
- * 类名：com.lc.framework.core.activity.adapter
+ * 类名：com.lc.framework.core.activity.list.adapter
  * 描述：列表基本实现监听器
  *
  * @author liucheng - liucheng@xhg.com

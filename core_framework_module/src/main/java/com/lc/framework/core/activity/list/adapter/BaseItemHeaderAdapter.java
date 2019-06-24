@@ -1,11 +1,11 @@
-package com.lc.framework.core.activity.adapter;
+package com.lc.framework.core.activity.list.adapter;
 
 import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseSectionQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.SectionEntity;
-import com.lc.framework.core.activity.listener.BaseSectionAdapterListener;
+import com.lc.framework.core.activity.list.listener.BaseSectionAdapterListener;
 
 import java.util.List;
 

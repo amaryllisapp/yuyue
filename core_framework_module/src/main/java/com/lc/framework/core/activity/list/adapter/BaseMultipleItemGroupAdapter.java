@@ -1,4 +1,4 @@
-package com.lc.framework.core.activity.adapter;
+package com.lc.framework.core.activity.list.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseSectionMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.SectionMultiEntity;
-import com.lc.framework.core.activity.listener.BaseMultiGroupAdapterListener;
+import com.lc.framework.core.activity.list.listener.BaseMultiGroupAdapterListener;
 import com.ps.lc.utils.ListUtils;
 
 import java.util.List;

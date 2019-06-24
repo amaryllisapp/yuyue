@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.lc.framework.R;
-import com.lc.framework.core.activity.adapter.BaseListAdapter;
-import com.lc.framework.core.activity.listener.BaseAdapterListener;
+import com.lc.framework.core.activity.list.adapter.BaseListAdapter;
+import com.lc.framework.core.activity.list.listener.BaseAdapterListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;

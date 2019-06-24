@@ -1,4 +1,4 @@
-package com.lc.framework.core.activity.adapter;
+package com.lc.framework.core.activity.list.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -7,8 +7,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import com.chad.library.adapter.base.BaseItemDraggableAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
-import com.lc.framework.core.activity.listener.BaseAdapterListener;
-import com.lc.framework.core.activity.listener.OnDragItemSwipeListener;
+import com.lc.framework.core.activity.list.listener.BaseAdapterListener;
+import com.lc.framework.core.activity.list.listener.OnDragItemSwipeListener;
 
 import java.util.List;
 

@@ -4,18 +4,11 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.lc.framework.core.activity.BaseCommFragmentActivity;
-import com.lc.framework.core.activity.SimpleListActivity;
 import com.lc.framework.core.activity.fragment.BaseAbsFragment;
-import com.lc.framework.core.activity.listener.BaseAdapterListener;
+import com.lc.framework.core.activity.list.listener.BaseAdapterListener;
 import com.ps.yuyue.fragment.Fragment1;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.R.layout.simple_list_item_2;
-import static com.lc.framework.router.share.ShareRouterContants.PUBLIC_MAIN;
 import static com.ps.yuyue.AppRouterContants.APP_FRAGMENT;
 
 /**
