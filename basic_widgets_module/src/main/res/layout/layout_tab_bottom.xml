@@ -27,7 +27,7 @@
 
     </LinearLayout>
 
-    <com.code.tool.utilsmodule.widget.tablelayout.widget.MsgView
+    <com.ps.lc.widget.tab.widget.MsgView
         android:id="@+id/rtv_msg_tip"
         xmlns:mv="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"

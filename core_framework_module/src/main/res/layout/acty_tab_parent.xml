@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.code.tool.utilsmodule.widget.tablelayout.CommonTabLayout
+    <com.ps.lc.widget.tab.CommonTabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="@dimen/sx38"
-        android:background="@color/white"
+        android:background="@color/common_color_FFFFFF"
 
         app:tl_iconVisible="false"
 

@@ -15,7 +15,7 @@ import com.ps.lc.widget.emptyview.OnEmptyViewClickListener;
 import com.ps.lc.widget.tab.CommonTabLayout;
 import com.ps.lc.widget.tab.listener.OnTabSelectListener;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 类名：com.lc.framework.core.activity
@@ -50,7 +50,7 @@ public abstract class TabFragmentActivity extends CommonAbsActivity implements O
     /**
      * FragmentBeans
      */
-    private ArrayList<BaseFragmentBean> mBeans;
+    private List<BaseFragmentBean> mBeans;
 
     @Override
     public int layoutId() {
@@ -66,7 +66,7 @@ public abstract class TabFragmentActivity extends CommonAbsActivity implements O
     private void initBaseFragment(LinearLayout containerLay) {
         mDividerViewpager = containerLay.findViewById(R.id.base_divider_viewpager);
         mBeans = loadFragmentBeans();
-        if (!ListUtils.isEmpty(mBeans)) {
+        if (ListUtils.isEmpty(mBeans)) {
             throw new IllegalArgumentException("BaseFragmentBean's Size Can't be > 1");
         }
         //初始化TabLayout
@@ -75,9 +75,10 @@ public abstract class TabFragmentActivity extends CommonAbsActivity implements O
         initViewPager();
     }
 
-    public ArrayList<BaseFragmentBean> getFragmentBeans() {
+    public List<BaseFragmentBean> getFragmentBeans() {
         return mBeans;
     }
+
     /**
      * 初始化 TabLayout
      */
@@ -95,6 +96,7 @@ public abstract class TabFragmentActivity extends CommonAbsActivity implements O
             }
         });
     }
+
     /**
      * 初始化 Viewpager
      */
@@ -122,7 +124,6 @@ public abstract class TabFragmentActivity extends CommonAbsActivity implements O
     public ViewPager getViewPager() {
         return mViewPager;
     }
-
 
 
     /**
@@ -170,7 +171,7 @@ public abstract class TabFragmentActivity extends CommonAbsActivity implements O
      * @return FragmentBeans
      */
     @NonNull
-    abstract protected ArrayList<BaseFragmentBean> loadFragmentBeans();
+    abstract protected List<BaseFragmentBean> loadFragmentBeans();
 
     /**
      * Viewpager的滑动监听回调方法

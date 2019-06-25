@@ -14,4 +14,9 @@ public class AppRouterContants extends BaseRouterConstants {
      * 主界面
      */
     public final static String APP_FRAGMENT = "/app/fragment";
+
+    /**
+     * 主界面
+     */
+    public final static String APP_FRAGMENT2 = "/app/fragment2";
 }

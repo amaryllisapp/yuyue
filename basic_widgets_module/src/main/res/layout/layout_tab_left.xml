@@ -25,7 +25,7 @@
             android:singleLine="true" />
     </LinearLayout>
 
-    <com.code.tool.utilsmodule.widget.tablelayout.widget.MsgView xmlns:mv="http://schemas.android.com/apk/res-auto"
+    <com.ps.lc.widget.tab.widget.MsgView xmlns:mv="http://schemas.android.com/apk/res-auto"
         android:id="@+id/rtv_msg_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -6,7 +6,6 @@ import android.widget.LinearLayout;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lc.framework.core.activity.BaseCommFragmentActivity;
 import com.lc.framework.core.activity.fragment.BaseAbsFragment;
-import com.lc.framework.core.activity.list.listener.BaseAdapterListener;
 import com.ps.yuyue.fragment.Fragment1;
 
 import static com.ps.yuyue.AppRouterContants.APP_FRAGMENT;

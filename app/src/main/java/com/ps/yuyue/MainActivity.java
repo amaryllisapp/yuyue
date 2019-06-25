@@ -56,7 +56,7 @@ public class MainActivity extends CommonAbsActivity {
 
     }
 
-    @OnClick({R.id.test_show, R.id.fragment_show})
+    @OnClick({R.id.test_show, R.id.fragment_show,R.id.fragment_tab_show})
     void onActionEvent(View view) {
         switch (view.getId()) {
             case R.id.test_show:
@@ -64,6 +64,9 @@ public class MainActivity extends CommonAbsActivity {
                 break;
             case R.id.fragment_show:
                 AppIntentManager.intentToFragment1Activity();
+                break;
+            case R.id.fragment_tab_show:
+                AppIntentManager.intentToFragment2Activity();
                 break;
             default:
         }

@@ -23,10 +23,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.code.tool.utilsmodule.widget.tablelayout.listener.OnTabSelectListener;
-import com.code.tool.utilsmodule.widget.tablelayout.utils.FragmentChangeManager;
-import com.code.tool.utilsmodule.widget.tablelayout.utils.UnreadMsgUtils;
-import com.code.tool.utilsmodule.widget.tablelayout.widget.MsgView;
+import com.ps.lc.widget.R;
+import com.ps.lc.widget.tab.listener.OnTabSelectListener;
+import com.ps.lc.widget.tab.utils.FragmentChangeManager;
+import com.ps.lc.widget.tab.utils.UnreadMsgUtils;
+import com.ps.lc.widget.tab.widget.MsgView;
 
 import java.util.ArrayList;
 
@@ -126,36 +127,36 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
     }
 
     private void obtainAttributes(Context context, AttributeSet attrs) {
-        TypedArray ta = context.obtainStyledAttributes(attrs, com.flyco.tablayout.R.styleable.SegmentTabLayout);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.SegmentTabLayout);
 
-        mIndicatorColor = ta.getColor(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_color, Color.parseColor("#222831"));
-        mIndicatorHeight = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_height, -1);
-        mIndicatorCornerRadius = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_corner_radius, -1);
-        mIndicatorMarginLeft = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_margin_left, dp2px(0));
-        mIndicatorMarginTop = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_margin_top, 0);
-        mIndicatorMarginRight = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_margin_right, dp2px(0));
-        mIndicatorMarginBottom = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_margin_bottom, 0);
-        mIndicatorAnimEnable = ta.getBoolean(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_anim_enable, false);
-        mIndicatorBounceEnable = ta.getBoolean(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_bounce_enable, true);
-        mIndicatorAnimDuration = ta.getInt(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_indicator_anim_duration, -1);
+        mIndicatorColor = ta.getColor(R.styleable.SegmentTabLayout_tl_indicator_color, Color.parseColor("#222831"));
+        mIndicatorHeight = ta.getDimension(R.styleable.SegmentTabLayout_tl_indicator_height, -1);
+        mIndicatorCornerRadius = ta.getDimension(R.styleable.SegmentTabLayout_tl_indicator_corner_radius, -1);
+        mIndicatorMarginLeft = ta.getDimension(R.styleable.SegmentTabLayout_tl_indicator_margin_left, dp2px(0));
+        mIndicatorMarginTop = ta.getDimension(R.styleable.SegmentTabLayout_tl_indicator_margin_top, 0);
+        mIndicatorMarginRight = ta.getDimension(R.styleable.SegmentTabLayout_tl_indicator_margin_right, dp2px(0));
+        mIndicatorMarginBottom = ta.getDimension(R.styleable.SegmentTabLayout_tl_indicator_margin_bottom, 0);
+        mIndicatorAnimEnable = ta.getBoolean(R.styleable.SegmentTabLayout_tl_indicator_anim_enable, false);
+        mIndicatorBounceEnable = ta.getBoolean(R.styleable.SegmentTabLayout_tl_indicator_bounce_enable, true);
+        mIndicatorAnimDuration = ta.getInt(R.styleable.SegmentTabLayout_tl_indicator_anim_duration, -1);
 
-        mDividerColor = ta.getColor(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_divider_color, mIndicatorColor);
-        mDividerWidth = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_divider_width, dp2px(1));
-        mDividerPadding = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_divider_padding, 0);
+        mDividerColor = ta.getColor(R.styleable.SegmentTabLayout_tl_divider_color, mIndicatorColor);
+        mDividerWidth = ta.getDimension(R.styleable.SegmentTabLayout_tl_divider_width, dp2px(1));
+        mDividerPadding = ta.getDimension(R.styleable.SegmentTabLayout_tl_divider_padding, 0);
 
-        mTextsize = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_textsize, sp2px(13f));
-        mTextSelectColor = ta.getColor(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_textSelectColor, Color.parseColor("#ffffff"));
-        mTextUnselectColor = ta.getColor(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_textUnselectColor, mIndicatorColor);
-        mTextBold = ta.getInt(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_textBold, TEXT_BOLD_NONE);
-        mTextAllCaps = ta.getBoolean(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_textAllCaps, false);
+        mTextsize = ta.getDimension(R.styleable.SegmentTabLayout_tl_textsize, sp2px(13f));
+        mTextSelectColor = ta.getColor(R.styleable.SegmentTabLayout_tl_textSelectColor, Color.parseColor("#ffffff"));
+        mTextUnselectColor = ta.getColor(R.styleable.SegmentTabLayout_tl_textUnselectColor, mIndicatorColor);
+        mTextBold = ta.getInt(R.styleable.SegmentTabLayout_tl_textBold, TEXT_BOLD_NONE);
+        mTextAllCaps = ta.getBoolean(R.styleable.SegmentTabLayout_tl_textAllCaps, false);
 
-        mTabSpaceEqual = ta.getBoolean(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_tab_space_equal, true);
-        mTabWidth = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_tab_width, dp2px(-1));
-        mTabPadding = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_tab_padding, mTabSpaceEqual || mTabWidth > 0 ? dp2px(0) : dp2px(10));
+        mTabSpaceEqual = ta.getBoolean(R.styleable.SegmentTabLayout_tl_tab_space_equal, true);
+        mTabWidth = ta.getDimension(R.styleable.SegmentTabLayout_tl_tab_width, dp2px(-1));
+        mTabPadding = ta.getDimension(R.styleable.SegmentTabLayout_tl_tab_padding, mTabSpaceEqual || mTabWidth > 0 ? dp2px(0) : dp2px(10));
 
-        mBarColor = ta.getColor(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_bar_color, Color.TRANSPARENT);
-        mBarStrokeColor = ta.getColor(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_bar_stroke_color, mIndicatorColor);
-        mBarStrokeWidth = ta.getDimension(com.flyco.tablayout.R.styleable.SegmentTabLayout_tl_bar_stroke_width, dp2px(1));
+        mBarColor = ta.getColor(R.styleable.SegmentTabLayout_tl_bar_color, Color.TRANSPARENT);
+        mBarStrokeColor = ta.getColor(R.styleable.SegmentTabLayout_tl_bar_stroke_color, mIndicatorColor);
+        mBarStrokeWidth = ta.getDimension(R.styleable.SegmentTabLayout_tl_bar_stroke_width, dp2px(1));
 
         ta.recycle();
     }
@@ -182,7 +183,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
         this.mTabCount = mTitles.length;
         View tabView;
         for (int i = 0; i < mTabCount; i++) {
-            tabView = View.inflate(mContext, com.flyco.tablayout.R.layout.layout_tab_segment, null);
+            tabView = View.inflate(mContext, R.layout.layout_tab_segment, null);
             tabView.setTag(i);
             addTab(i, tabView);
         }
@@ -192,7 +193,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
 
     /** 创建并添加tab */
     private void addTab(final int position, View tabView) {
-        TextView tv_tab_title = (TextView) tabView.findViewById(com.flyco.tablayout.R.id.tv_tab_title);
+        TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
         tv_tab_title.setText(mTitles[position]);
 
         tabView.setOnClickListener(new OnClickListener() {
@@ -226,7 +227,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
         for (int i = 0; i < mTabCount; i++) {
             View tabView = mTabsContainer.getChildAt(i);
             tabView.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
-            TextView tv_tab_title = (TextView) tabView.findViewById(com.flyco.tablayout.R.id.tv_tab_title);
+            TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tv_tab_title.setTextColor(i == mCurrentTab ? mTextSelectColor : mTextUnselectColor);
             tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
 //            tv_tab_title.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
@@ -246,7 +247,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
         for (int i = 0; i < mTabCount; ++i) {
             View tabView = mTabsContainer.getChildAt(i);
             final boolean isSelect = i == position;
-            TextView tab_title = (TextView) tabView.findViewById(com.flyco.tablayout.R.id.tv_tab_title);
+            TextView tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
             if (mTextBold == TEXT_BOLD_WHEN_SELECT) {
                 tab_title.getPaint().setFakeBoldText(isSelect);
@@ -600,7 +601,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
 
     public TextView getTitleView(int tab) {
         View tabView = mTabsContainer.getChildAt(tab);
-        TextView tv_tab_title = (TextView) tabView.findViewById(com.flyco.tablayout.R.id.tv_tab_title);
+        TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
         return tv_tab_title;
     }
 
@@ -621,7 +622,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
         }
 
         View tabView = mTabsContainer.getChildAt(position);
-        MsgView tipView = (MsgView) tabView.findViewById(com.flyco.tablayout.R.id.rtv_msg_tip);
+        MsgView tipView = (MsgView) tabView.findViewById(R.id.rtv_msg_tip);
         if (tipView != null) {
             UnreadMsgUtils.show(tipView, num);
 
@@ -653,7 +654,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
         }
 
         View tabView = mTabsContainer.getChildAt(position);
-        MsgView tipView = (MsgView) tabView.findViewById(com.flyco.tablayout.R.id.rtv_msg_tip);
+        MsgView tipView = (MsgView) tabView.findViewById(R.id.rtv_msg_tip);
         if (tipView != null) {
             tipView.setVisibility(View.GONE);
         }
@@ -669,9 +670,9 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
             position = mTabCount - 1;
         }
         View tabView = mTabsContainer.getChildAt(position);
-        MsgView tipView = (MsgView) tabView.findViewById(com.flyco.tablayout.R.id.rtv_msg_tip);
+        MsgView tipView = (MsgView) tabView.findViewById(R.id.rtv_msg_tip);
         if (tipView != null) {
-            TextView tv_tab_title = (TextView) tabView.findViewById(com.flyco.tablayout.R.id.tv_tab_title);
+            TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             mTextPaint.setTextSize(mTextsize);
             float textWidth = mTextPaint.measureText(tv_tab_title.getText().toString());
             float textHeight = mTextPaint.descent() - mTextPaint.ascent();
@@ -690,7 +691,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
             position = mTabCount - 1;
         }
         View tabView = mTabsContainer.getChildAt(position);
-        MsgView tipView = (MsgView) tabView.findViewById(com.flyco.tablayout.R.id.rtv_msg_tip);
+        MsgView tipView = (MsgView) tabView.findViewById(R.id.rtv_msg_tip);
         return tipView;
     }
 

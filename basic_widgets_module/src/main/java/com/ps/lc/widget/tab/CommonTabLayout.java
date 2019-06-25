@@ -35,6 +35,7 @@ import com.ps.lc.widget.tab.utils.UnreadMsgUtils;
 import com.ps.lc.widget.tab.widget.MsgView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 没有继承HorizontalScrollView不能滑动,对于ViewPager无依赖
@@ -211,7 +212,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         ta.recycle();
     }
 
-    public void setTabData(ArrayList<? extends CustomTabEntity> tabEntitys) {
+    public void setTabData(List<? extends CustomTabEntity> tabEntitys) {
         if (tabEntitys == null || tabEntitys.size() == 0) {
             throw new IllegalStateException("TabEntitys can not be NULL or EMPTY !");
         }
@@ -225,7 +226,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     /**
      * 关联数据支持同时切换fragments
      */
-    public void setTabData(ArrayList<CustomTabEntity> tabEntitys, FragmentActivity fa, int containerViewId, ArrayList<Fragment> fragments) {
+    public void setTabData(List<CustomTabEntity> tabEntitys, FragmentActivity fa, int containerViewId, List<Fragment> fragments) {
         mFragmentChangeManager = new FragmentChangeManager(fa.getSupportFragmentManager(), containerViewId, fragments);
         setTabData(tabEntitys);
     }
