@@ -30,7 +30,7 @@ ext {
             design             : "com.android.support:design:$design",
             cardview           : "com.android.support:cardview-v7:$cardview",
             statusbar          : "com.gyf.barlibrary:barlibrary:$statusbar",
-            tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayout@aar",
+//            tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayout@aar",
             smartrefreshlayout : "com.scwang.smartrefresh:SmartRefreshLayout:$smartrefreshlayout",
             smartrefreshheader : "com.scwang.smartrefresh:SmartRefreshHeader:$smartrefreshlayout",
             //-----------------------------Router-----------------------------------------------
@@ -53,6 +53,7 @@ ext {
              * APP
              */
             appDependencies      : [
+                    
                     supportDependencies.frameWorkModule,
                     supportDependencies.networkModule,
                     supportDependencies.widgetsModule,
@@ -60,7 +61,7 @@ ext {
                     supportDependencies.xxpermissions,
                     supportDependencies.design,
                     supportDependencies.cardview,
-                    supportDependencies.tablayout,
+//                    supportDependencies.tablayout,
 
             ],
             widgetsDependencies     :[
@@ -83,6 +84,7 @@ ext {
                     supportDependencies.utilsModule,
                     supportDependencies.widgetsModule,
 
+
                     supportDependencies.arouter_api,
                     supportDependencies.multidex,
                     supportDependencies.butterKnife,
@@ -99,6 +101,8 @@ ext {
              * 网络库
              */
             networkDependencies  : [
+                    supportDependencies.utilsModule,
+                    supportDependencies.appcompatV7,
                     supportDependencies.retrofit,
                     supportDependencies.okhttp,
                     supportDependencies.okhttp3Log,
@@ -107,6 +111,8 @@ ext {
                     supportDependencies.rxjava,
                     supportDependencies.rxlifecycle,
                     supportDependencies.rxandroid,
+
+
             ]
     ]
 
