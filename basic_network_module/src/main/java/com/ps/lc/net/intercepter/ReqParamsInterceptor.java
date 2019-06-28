@@ -20,9 +20,11 @@ import okhttp3.Response;
 import okio.Buffer;
 
 /**
- * Created by zhangwulin on 2016/11/2.
- * Eamil zhangwulin@feitaikeji.com
- * 请求参数拦截器
+ * 类名：ReqParamsInterceptor
+ * 描述：请求参数拦截器，包含请求头和请求参数两部分
+ *
+ * @author liucheng - liucheng@xhg.com
+ * @date 2019/6/26 19:32
  */
 public abstract class ReqParamsInterceptor implements Interceptor {
 
@@ -97,6 +99,7 @@ public abstract class ReqParamsInterceptor implements Interceptor {
 
     /**
      * 为FormBody添加参数
+     * //TODO:requestBuilder.post不能直接写，隐患太大
      *
      * @param request
      * @param requestBuilder

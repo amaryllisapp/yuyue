@@ -9,12 +9,18 @@ import okhttp3.RequestBody;
 import retrofit2.Converter;
 
 /**
- * Created by zhangwulin on 2017/1/14.
- * Email:zhangwulin@feitaikeji.com
+ * 类名：BaseRequestBodyConverter
+ * 描述：请求转换类基类（请求网络之前进行截获处理）
+ *
+ * TODO：MEDIA_TYPE方式需要考虑其他方式（可以通过BaseService进行获取）
+ *
+ * @author liucheng - liucheng@xhg.com
+ * @date 2019/6/26 19:21
  */
-
 public abstract class BaseRequestBodyConverter<T> implements Converter<T, RequestBody> {
+
     private final BaseService mService;
+
     protected static final MediaType MEDIA_TYPE = MediaType.parse("application/json; charset=UTF-8");
 
     public BaseRequestBodyConverter(BaseService service) {

@@ -11,10 +11,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Created by zhangwulin on 2017/1/14.
- * Email:zhangwulin@feitaikeji.com
+ * 类名：UpLoadProgressInterceptor
+ * 描述：上传拦截器（用于回传上传情况）
+ *
+ * @author liucheng - liucheng@xhg.com
+ * @date 2019/6/26 19:36
  */
-
 public class UpLoadProgressInterceptor implements Interceptor {
     private UploadCallback mUploadCallback;
 

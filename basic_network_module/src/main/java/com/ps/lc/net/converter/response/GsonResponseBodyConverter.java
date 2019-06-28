@@ -21,7 +21,7 @@ import okhttp3.ResponseBody;
  * Email:zhangwulin@feitaikeji.com
  */
 
-public class BaseGsonResponseBodyConverter<T> extends BaseResponseBodyConverter<T> {
+public class GsonResponseBodyConverter<T> extends BaseResponseBodyConverter<T> {
 
     public static final String TAG = "BaseGsonResponse";
 
@@ -29,13 +29,21 @@ public class BaseGsonResponseBodyConverter<T> extends BaseResponseBodyConverter<
     protected final TypeAdapter<T> adapter;
     protected final Type mType;
 
-    public BaseGsonResponseBodyConverter(BaseService service, Gson gson, Type type, TypeAdapter<T> adapter) {
+    public GsonResponseBodyConverter(BaseService service, Gson gson, Type type, TypeAdapter<T> adapter) {
         super(service);
         this.gson = gson;
         this.adapter = adapter;
         mType = type;
     }
 
+    /**
+     * 获取响应数据并进行数据解密
+     *
+     * @param value
+     * @param encryption
+     * @return
+     * @throws IOException
+     */
     @Override
     protected T getCipherTextConvertResponseBody(ResponseBody value, NetworkEncryption encryption) throws IOException {
         try {
@@ -45,6 +53,13 @@ public class BaseGsonResponseBodyConverter<T> extends BaseResponseBodyConverter<
         }
     }
 
+    /**
+     * 获取不加密时返回的响应数据
+     *
+     * @param value
+     * @return
+     * @throws IOException
+     */
     @Override
     protected T getConvertResponseBody(ResponseBody value) throws IOException {
 

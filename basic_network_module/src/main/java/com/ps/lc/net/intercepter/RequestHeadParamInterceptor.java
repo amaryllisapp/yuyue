@@ -1,19 +1,16 @@
 package com.ps.lc.net.intercepter;
 
 
-import com.ps.lc.utils.HardwareUtil;
-import com.ps.lc.utils.StringUtil;
-import com.ps.lc.utils.log.LogHelper;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 请求头参数
+ * 类名：RequestHeadParamInterceptor
+ * 描述：请求头参数(所有的动态请求参数均可以在该实现类中实现)
  *
- * @author 36077 - liucheng@xhg.com
- * @date 2018/12/10 11:17
- **/
+ * @author liucheng - liucheng@xhg.com
+ * @date 2019/6/26 19:33
+ */
 public class RequestHeadParamInterceptor extends ReqParamsInterceptor {
     /**
      * 请求头开关

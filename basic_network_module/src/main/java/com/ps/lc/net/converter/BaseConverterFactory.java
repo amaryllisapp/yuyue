@@ -12,10 +12,14 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 
 /**
- * Created by zhangwulin on 2017/1/14.
- * Email:zhangwulin@feitaikeji.com
+ *
+ * 类名：BaseConverterFactory
+ * 描述：基础Converter.Factory类,便于各种不同的JSON解析工具继承并实现
+ *
+ * @author liucheng - liucheng@xhg.com
+ *
+ * @date 2019/6/26 19:09
  */
-
 public abstract class BaseConverterFactory extends Converter.Factory {
 
     protected BaseService mService;

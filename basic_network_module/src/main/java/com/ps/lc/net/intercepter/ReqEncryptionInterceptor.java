@@ -19,10 +19,14 @@ import okhttp3.Response;
 import okio.Buffer;
 
 /**
- * Created by zhangwulin on 2017/3/16.
- * Email:zhangwulin@feitaikeji.com
+ *
+ * 类名：ReqEncryptionInterceptor
+ * 描述：加密拦截器()
+ *
+ * @author liucheng - liucheng@xhg.com
+ *
+ * @date 2019/6/26 19:27
  */
-
 public class ReqEncryptionInterceptor implements Interceptor {
 
     private NetworkEncryption mEncryption = null;
@@ -33,9 +37,14 @@ public class ReqEncryptionInterceptor implements Interceptor {
         }
     }
 
+    /**
+     * TODO:requestBuilder.post这里有问题，不能直接用POST 进行处理，需要根据实际情况进行处理
+     * @param chain
+     * @return
+     * @throws IOException
+     */
     @Override
     public Response intercept(Chain chain) throws IOException {
-
         Request request = chain.request();
         if (null != mEncryption) {
             Request.Builder requestBuilder = request.newBuilder();

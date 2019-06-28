@@ -9,11 +9,13 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 
 /**
- * <br> ClassName:  NoBodyConverterFactory
- * <br> Description: 处理body为空
- * <br>
- * <br> Author:      fangbingran
- * <br> Date:       2018/3/24
+ *
+ * 类名：NoBodyConverterFactory
+ * 描述： 处理body为空
+ *
+ * @author liucheng - liucheng@xhg.com
+ *
+ * @date 2019/6/26 19:10
  */
 public class NoBodyConverterFactory extends Converter.Factory {
 

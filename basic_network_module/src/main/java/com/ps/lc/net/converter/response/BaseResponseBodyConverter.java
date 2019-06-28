@@ -9,11 +9,16 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 
 /**
- * Created by zhangwulin on 2017/1/14.
- * Email:zhangwulin@feitaikeji.com
+ * 类名：BaseResponseBodyConverter
+ * 描述：转换基类（数据在这里被截获并判断是否进行解密处理）
+ * <p>
+ * TODO：这里的BaseService体量有点大，需要进行瘦身处理
+ *
+ * @author liucheng - liucheng@xhg.com
+ * @date 2019/6/26 19:17
  */
-
 public abstract class BaseResponseBodyConverter<T> implements Converter<ResponseBody, T> {
+
     protected final BaseService mService;
 
     public BaseResponseBodyConverter(BaseService service) {

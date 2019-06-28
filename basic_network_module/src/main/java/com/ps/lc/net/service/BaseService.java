@@ -8,7 +8,7 @@ import com.ps.lc.net.NetworkCode;
 import com.ps.lc.net.Utils;
 import com.ps.lc.net.certificate.HttpsCertificate;
 import com.ps.lc.net.converter.BaseConverterFactory;
-import com.ps.lc.net.converter.BaseGsonConverterFactory;
+import com.ps.lc.net.converter.GsonConverterFactory;
 import com.ps.lc.net.encryption.NetworkEncryption;
 import com.ps.lc.net.exception.ApiException;
 import com.ps.lc.net.subscriber.ISubscriber;
@@ -144,7 +144,7 @@ public abstract class BaseService<S, R> implements INetwork {
      * @return 转换器
      */
     public Converter.Factory getConverter() {
-        return null == mConverter ? BaseGsonConverterFactory.create(this) : mConverter;
+        return null == mConverter ? GsonConverterFactory.create(this) : mConverter;
     }
 
     /**
