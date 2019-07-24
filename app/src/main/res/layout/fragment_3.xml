@@ -9,33 +9,23 @@
 
 
     <Button
-        android:id="@+id/test_show"
+        android:id="@+id/read_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="列表页" />
+        android:text="获取文件Md5值" />
 
     <Button
-        android:id="@+id/fragment_show"
+        android:id="@+id/write_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment页面" />
+        android:text="写入文件Md5值" />
 
-    <Button
-        android:id="@+id/fragment_tab_show"
+    <TextView
+        android:id="@+id/show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FragmentTab页面" />
+        android:text="写入文件MD5" />
 
-    <Button
-        android:id="@+id/sobot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SOBOT" />
 
-    <Button
-        android:id="@+id/alipay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="阿里支付" />
 
 </LinearLayout>

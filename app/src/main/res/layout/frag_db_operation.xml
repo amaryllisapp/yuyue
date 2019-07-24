@@ -3,39 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary"
-    tools:context=".MainActivity">
-
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/test_show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="列表页" />
+        android:id="@+id/insert"
+        android:text="插入数据"
+        />
 
     <Button
-        android:id="@+id/fragment_show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment页面" />
-
+        android:id="@+id/update"
+        android:text="更新数据"
+        />
     <Button
-        android:id="@+id/fragment_tab_show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FragmentTab页面" />
-
+        android:id="@+id/delete"
+        android:text="删除数据"
+        />
     <Button
-        android:id="@+id/sobot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SOBOT" />
-
-    <Button
-        android:id="@+id/alipay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="阿里支付" />
-
+        android:id="@+id/query"
+        android:text="查询数据"
+        />
 </LinearLayout>

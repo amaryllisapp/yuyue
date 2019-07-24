@@ -13,7 +13,8 @@
         tools:replace="android:allowBackup"
         android:resizeableActivity="true"
         android:maxAspectRatio="2.4"
-        android:theme="@style/Theme.Common">
+        android:theme="@style/Theme.Common"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +38,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize"
             />
-
 
         <meta-data
             android:name="android.max_aspect"
