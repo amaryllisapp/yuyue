@@ -19,4 +19,9 @@ public class AppRouterContants extends BaseRouterConstants {
      * 主界面
      */
     public final static String APP_FRAGMENT2 = "/app/fragment2";
+
+    /**
+     * 友盟主界面
+     */
+    public final static String APP_UMENG_MAIN = "/app/umeng/main";
 }

@@ -317,7 +317,7 @@
 -keep class com.ps.recycling2b.umeng.beans.ShareParam
 -keep class com.code.tool.utilsmodule.widget.webview.JsCallBeanV2
 -dontwarn com.google.android.maps.**
--dontwarn com.umeng.**
+
 -dontwarn com.tencent.weibo.sdk.**
 -dontwarn com.facebook.**
 -keep public class javax.**
@@ -330,18 +330,26 @@
 -keep public interface com.umeng.socialize.sensor.**
 -keep public interface com.umeng.scrshot.**
 
--keep public class com.umeng.socialize.* {*;}
+
 -keep class com.facebook.**
 -keep class com.facebook.** { *; }
--keep class com.umeng.scrshot.**
 -keep public class com.tencent.** {*;}
--keep class com.umeng.socialize.sensor.**
--keep class com.umeng.socialize.handler.**
--keep class com.umeng.socialize.handler.*
--keep class com.umeng.weixin.handler.**
--keep class com.umeng.weixin.handler.*
--keep class com.umeng.qq.handler.**
--keep class com.umeng.qq.handler.*
+#
+#-keep class com.umeng.scrshot.**
+#
+#-keep public class com.umeng.socialize.* {*;}
+#-keep class com.umeng.socialize.sensor.**
+#-keep class com.umeng.socialize.handler.**
+#-keep class com.umeng.socialize.handler.*
+#-keep class com.umeng.weixin.handler.**
+#-keep class com.umeng.weixin.handler.*
+#-keep class com.umeng.qq.handler.**
+#-keep class com.umeng.qq.handler.*
+
+-dontwarn com.umeng.**
+-keep class com.umeng.** {*;}
+
+
 -keep class UMMoreHandler{*;}
 -keep class com.tencent.mm.sdk.modelmsg.WXMediaMessage {*;}
 -keep class com.tencent.mm.sdk.modelmsg.** implements com.tencent.mm.sdk.modelmsg.WXMediaMessage$IMediaObject {*;}

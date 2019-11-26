@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
 
@@ -37,5 +36,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="阿里支付" />
+
+    <Button
+        android:id="@+id/fastjson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FASTJSOn" />
+
+    <Button
+        android:id="@+id/umeng_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="友盟测试" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sx20"
+        android:layout_marginTop="@dimen/sx20"
+        android:layout_marginRight="@dimen/sx20"
+        android:orientation="horizontal">
+
+        <com.ps.yuyue.widget.FixedCursorEditText
+            android:id="@+id/edit_test"
+            android:layout_alignParentRight="true"
+            android:minWidth="@dimen/sx120"
+            android:hint="请输入..."
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="身份证号" />
+    </RelativeLayout>
 
 </LinearLayout>

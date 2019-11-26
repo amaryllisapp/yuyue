@@ -13,8 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+//import com.alipay.sdk.app.PayTask;
+//import com.alipay.sdk.app.PayTask;
 import com.alipay.sdk.app.PayTask;
 import com.lc.framework.core.activity.fragment.BaseAbsFragment;
+import com.ps.yuyue.AppIntentManager;
 import com.ps.yuyue.R;
 import com.ps.yuyue.alipay.PayResult;
 import com.ps.yuyue.sobot.SobotHelper;
@@ -52,7 +55,7 @@ public class Fragment1 extends BaseAbsFragment {
 
     }
 
-    @OnClick({R.id.sobot, R.id.alipay})
+    @OnClick({R.id.sobot, R.id.alipay, R.id.umeng_event})
     public void onEventBtn(View view) {
         switch (view.getId()) {
             case R.id.sobot:
@@ -60,6 +63,9 @@ public class Fragment1 extends BaseAbsFragment {
                 break;
             case R.id.alipay:
                 openAliPay();
+                break;
+            case R.id.umeng_event:
+                AppIntentManager.intentToUMengMainActivity();
                 break;
             default:
         }

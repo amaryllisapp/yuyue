@@ -4,6 +4,7 @@ import com.lc.framework.router.BaseIntentManager;
 
 import static com.ps.yuyue.AppRouterContants.APP_FRAGMENT;
 import static com.ps.yuyue.AppRouterContants.APP_FRAGMENT2;
+import static com.ps.yuyue.AppRouterContants.APP_UMENG_MAIN;
 
 /**
  * 类名：com.ps.yuyue
@@ -18,6 +19,13 @@ public class AppIntentManager extends BaseIntentManager {
      */
     public static void intentToFragment1Activity() {
         intentRouter(APP_FRAGMENT).navigation();
+    }
+
+    /**
+     * 跳转到友盟主界面
+     */
+    public static void intentToUMengMainActivity() {
+        intentRouter(APP_UMENG_MAIN).navigation();
     }
 
     /**
