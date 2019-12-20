@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.lc.framework.BaseApplication;
 import com.ps.yuyue.sobot.SobotHelper;
-import com.umeng.analytics.MobclickAgent;
-import com.umeng.commonsdk.UMConfigure;
+//import com.umeng.analytics.MobclickAgent;
+//import com.umeng.commonsdk.UMConfigure;
 
 import java.lang.reflect.Field;
 
@@ -21,15 +21,15 @@ public class YuYueApplication extends BaseApplication {
     @Override
     public void onCreate(){
         super.onCreate();
-        SobotHelper.onApplicationOnCreate(this);
+//        SobotHelper.onApplicationOnCreate(this);
         //初始化SDK,s为在猎鹰联盟开发者平台创建媒体时获得的 ID
 //        FalconAdEntrance.getInstance().init(this, "2306");
-        initUmeng();
+//        initUmeng();
     }
 
-    private void initUmeng(){
+    /*private void initUmeng(){
         //设置LOG开关，默认为false
-        UMConfigure.setLogEnabled(true);
+//        UMConfigure.setLogEnabled(true);
         try {
             Class<?> aClass = Class.forName("com.umeng.commonsdk.UMConfigure");
             Field[] fs = aClass.getDeclaredFields();
@@ -43,6 +43,6 @@ public class YuYueApplication extends BaseApplication {
         //支持多进程打点(自定义事件专用)
         UMConfigure.setProcessEvent(true);
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
-    }
+    }*/
 
 }

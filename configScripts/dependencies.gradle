@@ -27,8 +27,8 @@ ext {
             constraintlayout   : "com.android.support.constraint:constraint-layout:$constraintlayout",
             recyclerview       : "com.android.support:recyclerview-v7:$appcompat",
             recyclerviewadpater: "com.github.CymChad:BaseRecyclerViewAdapterHelper:$recycleradapter",
-            design             : "com.android.support:design:$design",
-            cardview           : "com.android.support:cardview-v7:$cardview",
+            design             : "com.android.support:design:$appcompat",
+            cardview           : "com.android.support:cardview-v7:$appcompat",
             statusbar          : "com.gyf.barlibrary:barlibrary:$statusbar",
 //            tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayout@aar",
             smartrefreshlayout : "com.scwang.smartrefresh:SmartRefreshLayout:$smartrefreshlayout",
@@ -68,6 +68,7 @@ ext {
             widgetsDependencies     :[
                     supportDependencies.utilsModule,
                     supportDependencies.appcompatV7,
+//                    supportDependencies.supportV4,
             ],
             /**
              * 工具类

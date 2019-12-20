@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lc.framework.core.activity.CommonAbsActivity;
 import com.ps.yuyue.R;
-import com.umeng.analytics.MobclickAgent;
+//import com.umeng.analytics.MobclickAgent;
 
 import butterknife.OnClick;
 
@@ -34,7 +34,7 @@ public class UMengMainActivity extends CommonAbsActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState, LinearLayout containerLay) {
-        MobclickAgent.onProfileSignIn("19974915532");
+//        MobclickAgent.onProfileSignIn("19974915532");
     }
 
     @OnClick({R.id.comm_event, R.id.custom_event})
@@ -47,10 +47,10 @@ public class UMengMainActivity extends CommonAbsActivity {
                 music.put("song_name","A_Thousand_Years_Later"); //歌名：一千年以后
                 music.put("song_price",100); //价格：100元
                 MobclickAgent.onEventObject(this, "play_music", music);*/
-                MobclickAgent.onEvent(this, "click", "button");
+//                MobclickAgent.onEvent(this, "click", "button");
                 break;
             case R.id.custom_event:
-                MobclickAgent.onEvent(this, "custom_click", "custom_click");
+//                MobclickAgent.onEvent(this, "custom_click", "custom_click");
                 break;
         }
     }
@@ -58,6 +58,6 @@ public class UMengMainActivity extends CommonAbsActivity {
     @Override
     public void onDestroy(){
         super.onDestroy();
-        MobclickAgent.onProfileSignOff();
+//        MobclickAgent.onProfileSignOff();
     }
 }

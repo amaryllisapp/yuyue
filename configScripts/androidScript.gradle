@@ -18,12 +18,10 @@ android {
     }
 
     lintOptions {
-        abortOnError false
-    }
-
-    lintOptions {
         disable 'MissingTranslation'
         disable 'ExtraTranslation'
+        checkReleaseBuilds false
+        abortOnError false
     }
 
     compileOptions {

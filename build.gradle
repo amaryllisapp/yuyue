@@ -6,7 +6,9 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        maven { url 'https://dl.bintray.com/umsdk/release' }
+//        maven { url 'https://dl.bintray.com/umsdk/release' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         apply from: rootProject.projectDir.absolutePath+'/configScripts/loadConfig.gradle'
@@ -22,11 +24,14 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://dl.bintray.com/umsdk/release' }
+        mavenCentral()
+//        maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
         maven { url "https://jitpack.io" }
     }
 }
+
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

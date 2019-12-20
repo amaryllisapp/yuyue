@@ -59,7 +59,7 @@ public class Fragment1 extends BaseAbsFragment {
     public void onEventBtn(View view) {
         switch (view.getId()) {
             case R.id.sobot:
-                SobotHelper.startSobotChat(_mActivity, "");
+//                SobotHelper.startSobotChat(_mActivity, "");
                 break;
             case R.id.alipay:
                 openAliPay();

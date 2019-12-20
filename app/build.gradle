@@ -63,13 +63,10 @@ android {
     }
 
     lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
-
-    lintOptions {
         disable 'MissingTranslation'
         disable 'ExtraTranslation'
+        checkReleaseBuilds false
+        abortOnError false
     }
 
     greendao{
@@ -115,6 +112,7 @@ android {
     }
 }
 
+
 repositories {
     flatDir {
         dirs 'libs'
@@ -125,14 +123,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     annotationProcessor annotationLibs
     implementation dependenciesExt.appDependencies
-    api "com.sobot.chat:sobotsdk:2.7.5"
+//    api "com.sobot.chat:sobotsdk:2.7.5"
     implementation 'org.greenrobot:greendao:3.2.2' // add library
     api (name: 'alipaySdk-15.6.4-20190611174341', ext: 'aar')
     api 'com.alibaba:fastjson:1.2.47'
     // 游戏SDK包(包含所有统计SDK功能及接口)
-    api  'com.umeng.umsdk:analytics:8.1.3'
+//    api  'com.umeng.umsdk:analytics:8.1.3'
     // 基础组件包
-    api  'com.umeng.umsdk:common:2.1.0'
+//    api  'com.umeng.umsdk:common:2.1.0'
     // 包含设备标识UTDID组件(和支付宝alipay的包存在冲突)
 //    api  'com.umeng.umsdk:utdid:1.1.5.3'
 
