@@ -1,18 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/test_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="列表页" />
+
+    <Button
+        android:id="@+id/fragment_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment页面" />
+
+    <Button
+        android:id="@+id/fragment_tab_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FragmentTab页面" />
+
+    <Button
+        android:id="@+id/sobot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SOBOT" />
+
+    <Button
+        android:id="@+id/alipay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="阿里支付" />
+
+    <Button
+        android:id="@+id/fastjson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FASTJSOn" />
+
+    <Button
+        android:id="@+id/umeng_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="友盟测试" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sx20"
+        android:layout_marginTop="@dimen/sx20"
+        android:layout_marginRight="@dimen/sx20"
+        android:orientation="horizontal">
+
+        <com.ps.yuyue.widget.FixedCursorEditText
+            android:id="@+id/edit_test"
+            android:layout_alignParentRight="true"
+            android:minWidth="@dimen/sx120"
+            android:hint="请输入..."
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="身份证号" />
+    </RelativeLayout>
+
+</LinearLayout>

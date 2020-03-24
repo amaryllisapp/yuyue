@@ -1,3 +1,12 @@
-<resources>
+<resources >
     <string name="app_name">basic_widgets_Module</string>
+
+    <string name="empty_view_no_data">暂无数据 囧！</string>
+    <string name="empty_view_netwrk_error">网络异常，加载失败</string>
+    <string name="empty_view_click_to_reload">点击屏幕，重新加载</string>
+    <string name="empty_view_no_net_error">暂无网络，请检查网络连接</string>
+    <string name="empty_view_location_msg_failure">定位失败了，请检查网络并重试吧</string>
+    <string name="empty_view_location_btn_txt">点击屏幕，重新定位</string>
+    <string name="empty_view_go_update">去更新</string>
+    <string name="empty_view__back_home">返回首页</string>
 </resources>

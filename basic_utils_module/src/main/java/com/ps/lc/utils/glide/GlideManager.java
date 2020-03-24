@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.request.RequestOptions;
-import com.code.tool.utilsmodule.util.DisplayUtil;
+import com.ps.lc.utils.comm.DisplayUtil;
 import com.ps.lc.utils.glide.transform.GlideCircleTransform;
 import com.ps.lc.utils.glide.transform.GlideRoundTransform;
 

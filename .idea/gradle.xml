@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/basic_config_module" />
             <option value="$PROJECT_DIR$/basic_network_module" />
             <option value="$PROJECT_DIR$/basic_utils_module" />
             <option value="$PROJECT_DIR$/basic_widgets_module" />
@@ -16,6 +17,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>

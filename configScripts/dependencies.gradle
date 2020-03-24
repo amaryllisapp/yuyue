@@ -1,47 +1,48 @@
 ext {
 
     supportDependencies = [
-            //网络相关
-            retrofit           : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitconverter  : "com.squareup.retrofit2:converter-gson:$retrofitConverterVersion",
-            okhttp             : "com.squareup.okhttp3:okhttp:$okhttpVersion",
-            okhttp3Log         : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
-            okio               : "com.squareup.okio:okio:$okioVersion",
-            gson               : "com.google.code.gson:gson:$gsonVersion",
-            tinypinyin         : "com.github.promeg:tinypinyin:$tinypinyin",
-
-            rxandroid          : "io.reactivex:rxandroid:$rxjavaVersion",
-            rxjava             : "io.reactivex:rxjava:$rxjavaVersion",
-            rxlifecycle        : "com.trello:rxlifecycle:$rxlifecycleVersion",
-
-            eventbus           : "org.greenrobot:eventbus:$eventbusVersion",
-
+            //----------------------------Network----------------------------------
+            okgo                : "com.lzy.net:okgo:$okgo",
+            okrx2               : "com.lzy.net:okrx2:$okrx2",
+            okserver            : "com.lzy.net:okserver:$okserver",
+            retrofit           : "com.squareup.retrofit2:retrofit:$retrofit",
+            retrofitconverter  : "com.squareup.retrofit2:converter-gson:$retrofitconverter",
+            okhttp             : "com.squareup.okhttp3:okhttp:$okhttp",
+            okhttp3Log         : "com.squareup.okhttp3:logging-interceptor:$okhttp",
+            okio               : "com.squareup.okio:okio:$okio",
+            gson               : "com.google.code.gson:gson:$gson",
+            rxandroid          : "io.reactivex:rxandroid:$rxjava",
+            rxjava             : "io.reactivex:rxjava:$rxjava",
+            rxlifecycle        : "com.trello:rxlifecycle:$rxlifecycle",
+            //------------------------------COMM------------------------------------------
+            multidex           : "com.android.support:multidex:$multidex",
+            eventbus           : "org.greenrobot:eventbus:$eventbus",
+            xxpermissions      : "com.hjq:xxpermissions:$xxpermissions",
+            butterKnife        : "com.jakewharton:butterknife:$butterknife",
+            butterAnnotations  : "com.jakewharton:butterknife-compiler:$butterknife",
+            leakcanary         : "com.squareup.leakcanary:leakcanary-android:$leakcanary",
+            //-----------------------------UI-----------------------------------------------
+            supportV4          : "com.android.support:support-v4:$supportV4",
             appcompatV7        : "com.android.support:appcompat-v7:$appcompat",
             constraintlayout   : "com.android.support.constraint:constraint-layout:$constraintlayout",
-
-            tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayoutVersion@aar",
-
-            recyclerviewadpater: "com.github.CymChad:BaseRecyclerViewAdapterHelper:$recyclerAdapterVersion",
             recyclerview       : "com.android.support:recyclerview-v7:$appcompat",
-            butterKnife        : "com.jakewharton:butterknife:$butterKnife",
-            butterAnnotations  : "com.jakewharton:butterknife-compiler:$butterKnife",
-
-            supportV4          : "com.android.support:support-v4:$supportV4",
-
-            multidex           : "com.android.support:multidex:$multidex",
-
-            glide              : "com.github.bumptech.glide:glide:$gildeVersion",
-            design             : "com.android.support:design:$designVersion",
-            cardview           : "com.android.support:cardview-v7:$cardviewVersion",
-            xxpermissions      : "com.hjq:xxpermissions:$xxpermissions",
+            recyclerviewadpater: "com.github.CymChad:BaseRecyclerViewAdapterHelper:$recycleradapter",
+            design             : "com.android.support:design:$appcompat",
+            cardview           : "com.android.support:cardview-v7:$appcompat",
+            statusbar          : "com.gyf.barlibrary:barlibrary:$statusbar",
+//            tablayout          : "com.flyco.tablayout:FlycoTabLayout_Lib:$tabLayout@aar",
+            smartrefreshlayout : "com.scwang.smartrefresh:SmartRefreshLayout:$smartrefreshlayout",
+            smartrefreshheader : "com.scwang.smartrefresh:SmartRefreshHeader:$smartrefreshlayout",
+            fragmentation      : "me.yokeyword:fragmentation:$fragmentation",
+            //-----------------------------Router-----------------------------------------------
             arouter_api        : "com.alibaba:arouter-api:$arouter_api",
             arouter_compiler   : "com.alibaba:arouter-compiler:$arouter_compiler",
 
+            //------------------------------picture----------------------------------------------
+            glide              : "com.github.bumptech.glide:glide:$gilde",
             luban              : "top.zibin:Luban:$luban",
-            title_bar          : "com.gyf.barlibrary:barlibrary:$barlibrary",
 
-
-
+            //------------------------------project----------------------------------------------
             frameWorkModule    : project(':core_framework_module'),
             networkModule      : project(':basic_network_module'),
             utilsModule        : project(':basic_utils_module'),
@@ -53,19 +54,21 @@ ext {
              * APP
              */
             appDependencies      : [
-
-                    supportDependencies.butterKnife,
-                    supportDependencies.appcompatV7,
+                    
+                    supportDependencies.frameWorkModule,
+                    supportDependencies.networkModule,
+                    supportDependencies.widgetsModule,
                     supportDependencies.constraintlayout,
-                    supportDependencies.xxpermissions,
-                    supportDependencies.multidex,
+
                     supportDependencies.design,
                     supportDependencies.cardview,
-                    supportDependencies.tablayout,
-                    supportDependencies.recyclerviewadpater,
-                    supportDependencies.recyclerview,
+//                    supportDependencies.tablayout,
 
-
+            ],
+            widgetsDependencies     :[
+                    supportDependencies.utilsModule,
+                    supportDependencies.appcompatV7,
+//                    supportDependencies.supportV4,
             ],
             /**
              * 工具类
@@ -74,21 +77,35 @@ ext {
                     supportDependencies.glide,
                     supportDependencies.eventbus,
                     supportDependencies.gson,
-                    supportDependencies.arouter_api,
                     supportDependencies.luban,
-                    supportDependencies.title_bar,
+                    supportDependencies.xxpermissions,
             ],
             /**
              * 核心库
              */
             frameworkDependencies: [
+                    supportDependencies.utilsModule,
+                    supportDependencies.widgetsModule,
 
+
+                    supportDependencies.arouter_api,
+                    supportDependencies.multidex,
+                    supportDependencies.butterKnife,
+                    supportDependencies.appcompatV7,
+                    supportDependencies.recyclerviewadpater,
+                    supportDependencies.recyclerview,
+                    supportDependencies.statusbar,
+                    supportDependencies.leakcanary,
+                    supportDependencies.smartrefreshlayout,
+                    supportDependencies.smartrefreshheader,
+                    supportDependencies.fragmentation,
             ],
             /**
              * 网络库
              */
             networkDependencies  : [
-
+                    supportDependencies.utilsModule,
+                    supportDependencies.appcompatV7,
                     supportDependencies.retrofit,
                     supportDependencies.okhttp,
                     supportDependencies.okhttp3Log,
@@ -97,6 +114,8 @@ ext {
                     supportDependencies.rxjava,
                     supportDependencies.rxlifecycle,
                     supportDependencies.rxandroid,
+
+
             ]
     ]
 

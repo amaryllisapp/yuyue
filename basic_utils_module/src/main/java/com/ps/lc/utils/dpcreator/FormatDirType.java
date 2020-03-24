@@ -1,5 +1,7 @@
 package com.ps.lc.utils.dpcreator;
 
+
+
 import android.support.annotation.IntDef;
 
 import java.lang.annotation.Retention;
@@ -23,7 +25,7 @@ public @interface FormatDirType {
      */
     int ALL = 1;
     /**
-     * 满箱
+     * 合并
      */
     int MEGER = 2;
 }

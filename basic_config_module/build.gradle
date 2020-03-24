@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+apply from: rootProject.projectDir.absolutePath + '/configScripts/androidScript.gradle'
+
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
