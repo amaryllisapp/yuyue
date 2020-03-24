@@ -44,6 +44,8 @@
             android:windowSoftInputMode="stateHidden|adjustResize"
             />
 
+        <activity android:name=".KotlinTest1Activity"/>
+
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" />

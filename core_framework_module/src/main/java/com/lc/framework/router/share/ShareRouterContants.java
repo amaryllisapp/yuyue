@@ -14,4 +14,6 @@ public class ShareRouterContants extends BaseRouterConstants {
      * 主界面
      */
     public final static String PUBLIC_MAIN = "/public/main";
+
+    public final static String PUBLIC_KOTLIN_MAIN = "/public/kotlin/main";
 }

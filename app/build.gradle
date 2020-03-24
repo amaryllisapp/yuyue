@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
 def releaseTime() {
     return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 }
@@ -133,5 +137,7 @@ dependencies {
 //    api  'com.umeng.umsdk:common:2.1.0'
     // 包含设备标识UTDID组件(和支付宝alipay的包存在冲突)
 //    api  'com.umeng.umsdk:utdid:1.1.5.3'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 }

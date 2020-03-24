@@ -16,4 +16,11 @@ public class ShareIntentManager extends BaseIntentManager {
     public static void intentToMainActivity() {
         intentRouter(ShareRouterContants.PUBLIC_MAIN).navigation();
     }
+
+    /**
+     * 跳转到Kotlin主界面
+     */
+    public static void intentToKotlinMainActivity() {
+        intentRouter(ShareRouterContants.PUBLIC_KOTLIN_MAIN).navigation();
+    }
 }

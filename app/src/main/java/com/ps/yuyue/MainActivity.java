@@ -2,6 +2,7 @@ package com.ps.yuyue;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -78,7 +79,10 @@ public class MainActivity extends CommonAbsActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }*/
-                ShareIntentManager.intentToMainActivity();
+//                ShareIntentManager.intentToMainActivity();
+//                ShareIntentManager.intentToKotlinMainActivity();
+                Intent intent = new Intent(MainActivity.this, KotlinTest1Activity.class);
+                startActivity(intent);
                 break;
             case R.id.fragment_show:
                 /*try {
