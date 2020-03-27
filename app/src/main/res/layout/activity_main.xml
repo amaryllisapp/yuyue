@@ -57,14 +57,7 @@
         android:layout_marginRight="@dimen/sx20"
         android:orientation="horizontal">
 
-        <com.ps.yuyue.widget.FixedCursorEditText
-            android:id="@+id/edit_test"
-            android:layout_alignParentRight="true"
-            android:minWidth="@dimen/sx120"
-            android:hint="请输入..."
-            android:gravity="right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
 
         <TextView
 

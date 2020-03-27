@@ -12,7 +12,6 @@ import com.ps.lc.utils.log.LogHelper;
 import com.ps.lc.utils.permission.PermissionCallback;
 import com.ps.lc.utils.permission.PermissionUtil;
 import com.ps.yuyue.R;
-import com.ps.yuyue.validapk.NetworkUtils;
 
 import java.io.File;
 import java.util.List;
@@ -64,38 +63,38 @@ public class Fragment3 extends BaseAbsFragment {
              */
             @Override
             public void hasPermission(List<String> granted, boolean isAll) {
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        switch (view.getId()) {
-                            case R.id.read_file:
-                                File file = new File("/sdcard/apk/");
-                                if (file.isDirectory()) {
-                                    File[] files = file.listFiles();
-                                    if (file != null && file.length() > 0) {
-                                        mFile = files[files.length - 1];
-                                        md5 = NetworkUtils.getFileToAlgorithm(mFile, "md5");
-                                        LogHelper.i("文件名：[" + mFile.getName() + "]的MD5值为=" + md5);
-                                        mShowView.setText("包名Md5" + md5);
-                                    }
-                                } else {
-                                    String md5 = NetworkUtils.getFileToAlgorithm(file, "md5");
-                                    LogHelper.i("文件名：[" + file.getName() + "]的MD5值为=" + md5);
-                                }
-
-                                break;
-                            case R.id.write_file:
-                                String fileName = mFile.getName().substring(0, mFile.getName().lastIndexOf("."));
-                                fileName = fileName+"$"+md5 + mFile.getName().substring(mFile.getName().lastIndexOf("."));
-                                String filePath = mFile.getPath().substring(0, mFile.getPath().lastIndexOf("/"));
-                                String newPath = filePath + "/" +fileName;
-                                mFile.renameTo(new File(newPath));
-                                mShowView.setText("文件目录及名称：["+mFile.getPath()+"]");
-                                break;
-                            default:
-                        }
-                    }
-                });
+//                new Handler().post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        switch (view.getId()) {
+//                            case R.id.read_file:
+//                                File file = new File("/sdcard/apk/");
+//                                if (file.isDirectory()) {
+//                                    File[] files = file.listFiles();
+//                                    if (file != null && file.length() > 0) {
+//                                        mFile = files[files.length - 1];
+//                                        md5 = NetworkUtils.getFileToAlgorithm(mFile, "md5");
+//                                        LogHelper.i("文件名：[" + mFile.getName() + "]的MD5值为=" + md5);
+//                                        mShowView.setText("包名Md5" + md5);
+//                                    }
+//                                } else {
+//                                    String md5 = NetworkUtils.getFileToAlgorithm(file, "md5");
+//                                    LogHelper.i("文件名：[" + file.getName() + "]的MD5值为=" + md5);
+//                                }
+//
+//                                break;
+//                            case R.id.write_file:
+//                                String fileName = mFile.getName().substring(0, mFile.getName().lastIndexOf("."));
+//                                fileName = fileName+"$"+md5 + mFile.getName().substring(mFile.getName().lastIndexOf("."));
+//                                String filePath = mFile.getPath().substring(0, mFile.getPath().lastIndexOf("/"));
+//                                String newPath = filePath + "/" +fileName;
+//                                mFile.renameTo(new File(newPath));
+//                                mShowView.setText("文件目录及名称：["+mFile.getPath()+"]");
+//                                break;
+//                            default:
+//                        }
+//                    }
+//                });
 
             }
 

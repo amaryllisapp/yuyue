@@ -1,9 +1,19 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 apply from: rootProject.projectDir.absolutePath + '/configScripts/androidScript.gradle'
 
-
+kapt {
+    arguments {
+        arg("core_framework_module", project.getName())
+        includeCompileClasspath = true
+    }
+    generateStubs = true
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    annotationProcessor annotationLibs
+    kapt annotationLibs
     api dependenciesExt.frameworkDependencies
 }

@@ -3,6 +3,7 @@ apply plugin: 'org.greenrobot.greendao'
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 
 def releaseTime() {
@@ -24,7 +25,7 @@ android {
 
         ndk {
             abiFilters "armeabi" //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
-            abiFilters "x86"
+//            abiFilters "x86"
         }
 
         javaCompileOptions {
@@ -123,20 +124,24 @@ repositories {
     }
 }
 
+kapt {
+    arguments {
+        arg("app", project.getName())
+        includeCompileClasspath = true
+    }
+    generateStubs = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    annotationProcessor annotationLibs
     implementation dependenciesExt.appDependencies
-//    api "com.sobot.chat:sobotsdk:2.7.5"
+    // 采用kotlin方式编译,同时兼容java模式，因此arouter和butterknife只需要配置kotlin模式即可
+    kapt annotationLibs
+//    kapt 'com.alibaba:arouter-compiler:1.2.2'
+//    kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+
     implementation 'org.greenrobot:greendao:3.2.2' // add library
-    api (name: 'alipaySdk-15.6.4-20190611174341', ext: 'aar')
     api 'com.alibaba:fastjson:1.2.47'
-    // 游戏SDK包(包含所有统计SDK功能及接口)
-//    api  'com.umeng.umsdk:analytics:8.1.3'
-    // 基础组件包
-//    api  'com.umeng.umsdk:common:2.1.0'
-    // 包含设备标识UTDID组件(和支付宝alipay的包存在冲突)
-//    api  'com.umeng.umsdk:utdid:1.1.5.3'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 

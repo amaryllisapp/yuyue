@@ -8,7 +8,9 @@ import com.lc.framework.core.activity.BaseCommFragmentActivity;
 import com.lc.framework.core.activity.fragment.BaseAbsFragment;
 import com.ps.yuyue.fragment.Fragment1;
 
-import static com.ps.yuyue.AppRouterContants.APP_FRAGMENT;
+import butterknife.OnClick;
+
+import static com.ps.yuyue.router.AppRouterContants.APP_FRAGMENT;
 
 /**
  * 类名：com.ps.yuyue
@@ -34,4 +36,6 @@ public class Fragment1Activity extends BaseCommFragmentActivity {
     protected void initView(Bundle savedInstanceState, LinearLayout containerLay) {
 
     }
+
+
 }

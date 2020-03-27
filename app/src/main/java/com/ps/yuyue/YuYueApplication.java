@@ -1,13 +1,9 @@
 package com.ps.yuyue;
 
-import android.util.Log;
-
 import com.lc.framework.BaseApplication;
-import com.ps.yuyue.sobot.SobotHelper;
+
 //import com.umeng.analytics.MobclickAgent;
 //import com.umeng.commonsdk.UMConfigure;
-
-import java.lang.reflect.Field;
 
 /**
  * 类名：com.ps.yuyue
@@ -19,7 +15,7 @@ import java.lang.reflect.Field;
 public class YuYueApplication extends BaseApplication {
 
     @Override
-    public void onCreate(){
+    public void onCreate() {
         super.onCreate();
 //        SobotHelper.onApplicationOnCreate(this);
         //初始化SDK,s为在猎鹰联盟开发者平台创建媒体时获得的 ID

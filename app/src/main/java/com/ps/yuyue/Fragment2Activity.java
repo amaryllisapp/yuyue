@@ -14,7 +14,7 @@ import com.ps.yuyue.fragment.Fragment3;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ps.yuyue.AppRouterContants.APP_FRAGMENT2;
+import static com.ps.yuyue.router.AppRouterContants.APP_FRAGMENT2;
 
 /**
  * 类名：com.ps.yuyue
