@@ -6,7 +6,6 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.lc.framework.core.activity.CommonAbsActivity
 import com.ps.yuyue.R
 import com.ps.yuyue.router.AppRouterContants
-import java.io.File
 
 /**
  *
@@ -31,15 +30,63 @@ class MainActivity1 : CommonAbsActivity() {
 
     }
 
-    fun main(args: Array<String>?){
+    fun main(args: Array<String>?) {
+        val list = mutableListOf<Book>()
+        list.add(Book("十年", "村上春树"))
+        for (book in list) {
 
+        }
+        for (num in 0 until list.size - 1 step 1) {
 
+        }
+        for (num in (list.size - 1) downTo 0) {
 
+        }
+        for (num in 0..list.lastIndex) {
+
+        }
+        for (num in list.indices) {
+
+        }
+        list.clear()
+
+        dealSet()
 
     }
 
-    fun change(str:String):String{
+    fun dealSet(): Unit {
+        var la = mutableSetOf<String>("JAVA", "PHP", "delphi", "Perl")
+        la.add("C++")
+        la.remove("JAVA")
+        la.removeAll(setOf("Perl", "PHP"))
+        la.clear()
+        la.forEach {
 
-        return ""
+        }
     }
+
+    fun dealMap(): Unit {
+        var map = mutableMapOf("java" to "89分", "oracle" to "32分")
+        for (key in map.keys) {
+            //todo:查询所有的key
+        }
+        for (value in map.values) {
+            // TODO:查询所有的Values
+        }
+        for (entry in map.entries) {
+            // TODO:查询所有的实体
+
+        }
+        for ((key, value) in map) {
+
+        }
+        map.forEach {
+            var entry: Map.Entry<String, String> = it
+        }
+        map.clear()
+        map.put("mysl","54分")
+        var value = map.get("java")
+    }
+
+    class Book(name: String, author: String)
 }
